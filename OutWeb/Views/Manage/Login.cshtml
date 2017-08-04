@@ -1,0 +1,33 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_MLayout.cshtml";
+    ViewBag.Title = "JCIN後台管理系統";
+    ViewBag.BodyClass = "Login";
+    ViewBag.IsFirstPage = true;
+}
+
+<h1 class="logo">
+    @* @Resources.Res.System_Name<small>Web Manager</small> *@
+    寶程國際物業管理系統<small class="text-muted m-l-8">Web Manager</small>
+</h1>
+<h6 class="font-sp text-primary">Bow Way &copy; 2017</h6>
+
+<form class="text-left">
+
+    <header class="title font-sp">System Login</header>
+
+    <main>
+        <label>帳號 Username</label>
+        <input type="text" class="form-element" required>
+
+        <label>密碼 Password</label>
+        <input type="password" class="form-element" required>
+
+        <label>驗證碼 Code</label>
+        <input type="text" class="form-element" required>
+    </main>
+
+    <footer class="action-bar text-center">
+        <button type="button" class="btn info" onclick="location.href='@Url.Content("~/Manage/NewsList")'">登入 LOGIN</button>
+    </footer>
+</form>

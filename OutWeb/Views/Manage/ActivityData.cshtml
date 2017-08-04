@@ -1,0 +1,58 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_MLayout.cshtml";
+    ViewBag.Crumb = "活動剪影 資訊維護";
+    ViewBag.subnav = "n2";
+    ViewBag.subnav2 = "n2-1";
+}
+
+@section Breadcrumb {
+    <ul class="breadcrumb">
+        <li>活動剪影管理 &#10095;</li>
+        <li>@ViewBag.Crumb</li>
+    </ul>
+}
+
+<h3 class="title">@ViewBag.Crumb <small class="oi" data-glyph="tags">編輯</small></h3>
+
+<form class="form-list">
+    <dl class="fields">
+        <dt class="col-1">標題</dt>
+        <dd class="col-10">
+            <input type="text">
+        </dd>
+    </dl>
+    <dl class="fields">
+        <dt class="col-1">排序</dt>
+        <dd class="col-5">
+            <input type="number" value="0" class="inline">
+            <small>數字愈大愈前面</small>
+        </dd>
+    </dl>
+    <dl class="fields">
+        <dt class="col-1">前台顯示</dt>
+        <dd class="col-5">
+            <label class="switch">
+                <input type="checkbox" checked>
+                <div class="slider round"></div>
+            </label>
+        </dd>
+    </dl>
+    <fieldset class="m-t-24">
+        <legend class="underline">[ 內容 ]</legend>
+        <div class="alert-warning m-b-16">
+            <strong>編輯器注意事項:</strong><br>
+            從 WORD 複製文字時，請使用下方的 <img src="/Content/images/icon-word.jpg" /> 圖示來貼上 WORD 文字，避免跑版
+        </div>
+        @* 不能上傳圖 *@
+        <textarea rows="12"></textarea>
+    </fieldset>
+    <footer class="submit-bar clear m-t-24">
+        <button type="button" class="btn success oi" data-glyph="circle-check">
+            確認儲存
+        </button>
+        <button type="button" class="btn warning oi" data-glyph="circle-x" onclick="location.href='FAQList'">
+            回列表
+        </button>
+    </footer>
+</form>

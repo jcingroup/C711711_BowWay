@@ -1,0 +1,119 @@
+﻿@{
+    ViewBag.Title = "首頁";
+}
+
+@section css {
+    <link rel="stylesheet" href="~/Content/css/vendor/swiper.min.css">
+}
+@section scripts {
+    <script src="~/Content/js/swiper.min.js"></script>
+    <script>
+        var swiperBanner = new Swiper(document.getElementById('banner'), {
+            pagination: '.swiper-pager',
+            paginationClickable: true,
+            autoplay: 5000,
+            autoplayDisableOnInteraction: false,
+            speed: 1000,
+            // grabCursor: true,
+            effect: 'fade'
+        });
+    </script>
+}
+
+<section id="banner" class="swiper-container">
+    <main id="setBanner" class="swiper-wrapper">
+        <div class="swiper-slide"><img src="~/Content/images/index/banner1.jpg" alt="b1"></div>
+        <div class="swiper-slide"><img src="~/Content/images/index/banner2.jpg" alt="b2"></div>
+        <div class="swiper-slide"><img src="~/Content/images/index/banner3.jpg" alt="b3"></div>
+        <div class="swiper-slide"><img src="~/Content/images/index/banner4.jpg" alt="b4"></div>
+        <div class="swiper-slide"><img src="~/Content/images/index/banner5.jpg" alt="b5"></div>
+    </main>
+</section>
+
+<section class="wrap m-y-24 bg-muted">
+    <article class="col-6 text-left p-x-48 p-y-32">
+        <header class="title underline font-xxxl m-b-32"><span>NEWS</span></header>
+        <nav class="news-list">
+            @* 套程式-連結到 News/News 頁的錨點 *@
+            <a href="~/News#n1">2017 春夏 新款布料 陸續登場!!</a>
+            <a href="~/News#n3">台新銀行 新光銀行 信用卡 三期零利率優惠!!</a>
+            <a href="~/News#n2">台北-西門店 國民旅遊卡 特約商店</a>
+            <a href="~/News#n4">營業時間調整公告</a>
+        </nav>
+    </article>
+    <aside class="col-6 p-r-0">
+        <img src="~/Content/images/index/news.jpg" alt="最新消息插圖" class="full">
+    </aside>
+</section>
+
+<section class="wrap m-y-48">
+    <figure class="col-6">
+        <img src="~/Content/images/index/activity1.jpg" alt="訂製結婚西服 新婚賀禮大方送">
+        <figcaption>
+            <h2 class="m-b-24">訂製結婚西服<br>新婚賀禮大方送</h2>
+            <a href="~/Home/Wedding" class="btn font-sp">Read More</a>
+        </figcaption>
+    </figure>
+
+    <figure class="col-6">
+        <img src="~/Content/images/index/activity2.jpg" alt="滿額禮 優惠活動 全省同步開跑!!">
+        <figcaption>
+            <h2 class="m-b-24">滿額禮 優惠活動<br>全省同步開跑!!</h2>
+            <a href="~/Home/Event" class="btn font-sp">Read More</a>
+        </figcaption>
+    </figure>
+
+    @* <div class="col-6">
+        <main class="pic-info">
+            <img src="~/Content/images/index/tg3d.jpg" alt="Scnatic 360 人體掃描機">
+            <h3>Scnatic 360 人體掃描機</h3>
+            <p>非拍攝照片或錄影．無輻射。方便、安全、絕對隱私</p>
+        </main>
+        <a href="https://www.youtube.com/watch?v=NTVSxCk2X44&feature=youtu.be" target="new" class="btn font-sp">Watch The Film</a>
+    </div>
+
+    <div class="col-6">
+        <main class="pic-info">
+            <img src="~/Content/images/index/gallery.jpg" alt="EZ photo">
+        </main>
+        <a href="" class="btn font-sp">The EZ Gallery</a>
+    </div> *@
+</section>
+
+<section class="wrap m-y-24 bg-muted">
+    <article class="col-5 products">
+        <header class="title font-jumbo">男士精品</header>
+        <a href="~/Home/Show_S1" class="btn font-sp">Read More</a>
+    </article>
+    <aside class="col-7 p-r-0">
+        <img src="~/Content/images/index/products.jpg" alt="男士精品插圖" class="full">
+    </aside>
+</section>
+
+<section class="wrap m-t-48 m-b-64">
+    <div class="grid c-1-3">
+        <img src="~/Content/images/index/flow.jpg" alt="訂製流程" class="circle">
+        <h3>訂製流程</h3>
+        <a href="~/Home/Flow" class="btn bg-primary font-sp">Read More</a>
+    </div>
+
+    <div class="grid c-1-3">
+        <img src="~/Content/images/index/tieknot.jpg" alt="領帶的打法" class="circle">
+        <h3>領帶的打法</h3>
+        <a href="~/Home/TieKnot" class="btn bg-primary font-sp">Read More</a>
+    </div>
+
+    <div class="grid c-1-3">
+        <img src="~/Content/images/index/maintain.jpg" alt="西服保養技巧" class="circle">
+        <h3>西服保養技巧</h3>
+        <a href="~/Home/Maintain" class="btn bg-primary font-sp">Read More</a>
+    </div>
+</section>
+
+@* 彈出視窗 *@
+<div class="modal" id="popup">
+    <main class="modal-content">
+        <button class="modal-close" onclick="document.getElementById('popup').style.display='none'">&#215;</button>
+        <img src="~/Content/images/index/notice.jpg">
+    </main>
+</div>

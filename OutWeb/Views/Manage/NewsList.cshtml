@@ -1,0 +1,103 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_MLayout.cshtml";
+    ViewBag.Crumb = "最新消息管理";
+    ViewBag.subnav = "n1";
+}
+
+@section Breadcrumb {
+    <ul class="breadcrumb">
+        <li>@ViewBag.Crumb</li>
+    </ul>
+}
+
+<h3 class="title">@ViewBag.Crumb</h3>
+
+<div class="alert-warning m-b-16">
+    <strong>前台排序:</strong>數字愈大愈前面
+</div>
+
+<div class="topBtn-bar btn-group">
+    <button class="btn success oi" data-glyph="plus" onclick="location.href='@Url.Content("NewsData")'">新增</button>
+</div>
+
+<header class="table-head form-inline">
+    <input type="text" placeholder="請輸入關鍵字">
+    <label>發佈日期</label>
+    <input type="date">
+    <label>前台顯示</label>
+    <select>
+        <option>全部</option>
+        <option>顯示</option>
+        <option>隱藏</option>
+    </select>
+    <label>首頁顯示</label>
+    <select>
+        <option>全部</option>
+        <option>顯示</option>
+        <option>隱藏</option>
+    </select>
+    <button class="btn">搜尋</button>
+</header>
+<table class="table-list table-hover table-striped">
+    <colgroup>
+        <col span="3">
+        <col style="width: 13.5%">
+        <col span="3" style="width: 11%">
+    </colgroup>
+    <tr>
+        @* 點選排序功能 (點一下遞增, 點兩下遞減)
+           <button class="th-sort-toggle"></button>
+           遞增 asc
+           <button class="th-sort-toggle asc"></button>
+           遞減 desc
+           <button class="th-sort-toggle desc"></button>
+        *@
+        <th class="item-edit">刪除</th>
+        <th class="item-edit">修改</th>
+        <th class="text-left">標題</th>
+        <th>
+            <button class="th-sort-toggle">發佈日期</button>
+        </th>
+        <th>
+            <button class="th-sort-toggle">前台顯示</button>
+        </th>
+        <th>
+            <button class="th-sort-toggle">首頁顯示</button>
+        </th>
+        <th>
+            <button class="th-sort-toggle">前台排序</button>
+        </th>
+    </tr>
+    <tr>
+        <td class="item-edit">
+            <button class="btn-link text-danger hover-text-danger oi" title="刪除" data-glyph="trash"></button>
+        </td>
+        <td class="item-edit">
+            <button class="btn-link oi" title="修改" data-glyph="pencil" onclick="location.href='@Url.Content("NewsData")'"></button>
+        </td>
+        <td class="text-left">TEXT</td>
+        <td>2017-03-27</td>
+        <td>
+            <span class="label-success">顯示</span>
+        </td>
+        <td>
+            <span class="label">隱藏</span>
+        </td>
+        <td>10</td>
+    </tr>
+</table>
+<footer class="table-foot">
+    <small class="float-r">第 1-1 筆，共 1 筆</small>
+    <nav class="pager">
+        <a href="" class="oi" data-glyph="media-step-backward" title="到最前頁"></a>
+        <a href="" class="oi" data-glyph="chevron-left" title="上一頁"></a>
+        <span>
+            第
+            <input type="number" min="1" value="1">
+            頁，共 1 頁
+        </span>
+        <a href="" class="oi" data-glyph="chevron-right" title="下一頁"></a>
+        <a href="" class="oi" data-glyph="media-step-forward" title="到最後頁"></a>
+    </nav>
+</footer>
