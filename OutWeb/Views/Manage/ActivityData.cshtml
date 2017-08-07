@@ -21,7 +21,7 @@
 <form class="form-list">
     <dl class="fields">
         <dt class="col-1">名稱</dt>
-        <dd class="col-9">
+        <dd class="col-11">
             <input type="text">
         </dd>
     </dl>
@@ -44,6 +44,10 @@
 
     <fieldset class="m-t-24">
         <legend>[ 上傳圖片 ]</legend>
+        <div class="alert-warning m-b-16">
+            <strong>注意事項:</strong><br>
+            圖片建議寬度不超過1000px，高度不超過800px，檔案大小不超過2MB (1MB=1000kb)
+        </div>
 
         @* 拖曳上傳圖片：
            src https://demos.devexpress.com/aspxfilemanageranduploaddemos/uploadcontrol/DragAndDrop.aspx *@
@@ -98,7 +102,7 @@
         <button type="button" class="btn success oi" data-glyph="circle-check">
             確認儲存
         </button>
-        <button type="button" class="btn warning oi" data-glyph="circle-x" onclick="location.href='ActivityKind'">
+        <button type="button" class="btn warning oi" data-glyph="circle-x" onclick="location.href='ActivityList'">
             回列表
         </button>
     </footer>
