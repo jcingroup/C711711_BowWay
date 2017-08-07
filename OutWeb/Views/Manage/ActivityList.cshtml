@@ -1,9 +1,9 @@
 ﻿
 @{
     Layout = "~/Views/Shared/_MLayout.cshtml";
-    ViewBag.Crumb = "活動剪影 資訊維護";
+    ViewBag.Crumb = "相簿分類維護";
     ViewBag.subnav = "n2";
-    ViewBag.subnav2 = "n2-2";
+    ViewBag.subnav2 = "n2-1";
 }
 
 @section Breadcrumb {
@@ -20,7 +20,7 @@
 </div>
 
 <div class="topBtn-bar btn-group">
-    <button class="btn success oi" data-glyph="plus" onclick="location.href='@Url.Content("FAQData")'">新增</button>
+    <button class="btn success oi" data-glyph="plus" onclick="location.href='@Url.Content("ActivityData")'">新增</button>
 </div>
 
 <header class="table-head form-inline">
@@ -33,6 +33,7 @@
     </select>
     <button class="btn">搜尋</button>
 </header>
+
 <table class="table-list table-hover table-striped">
     <colgroup>
         <col span="3">
@@ -48,7 +49,7 @@
         *@
         <th class="item-edit">刪除</th>
         <th class="item-edit">修改</th>
-        <th class="text-left">標題</th>
+        <th class="text-left">相簿名稱</th>
         <th>
             <button class="th-sort-toggle">前台顯示</button>
         </th>
@@ -61,7 +62,7 @@
             <button class="btn-link text-danger hover-text-danger oi" title="刪除" data-glyph="trash"></button>
         </td>
         <td class="item-edit">
-            <button class="btn-link oi" title="修改" data-glyph="pencil" onclick="location.href='@Url.Content("FAQData")'"></button>
+            <button class="btn-link oi" title="修改" data-glyph="pencil" onclick="location.href='@Url.Content("ActivityData")'"></button>
         </td>
         <td class="text-left">TEXT</td>
         <td>

@@ -204,17 +204,15 @@
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Views\Activity\Album.cshtml" />
     <Content Include="Views\News\List.cshtml" />
-    <Content Include="Views\Manage\ActivityKind.cshtml" />
+    <Content Include="Views\Manage\ActivityList.cshtml" />
     <Content Include="Views\Manage\ChangePW.cshtml" />
     <Content Include="Views\Manage\ActivityData.cshtml" />
-    <Content Include="Views\Manage\ActivityList.cshtml" />
     <Content Include="Views\Manage\Login.cshtml" />
     <Content Include="Views\Manage\NewsData.cshtml" />
     <Content Include="Views\Manage\NewsList.cshtml" />
     <Content Include="Views\Shared\_MLayout.cshtml" />
     <Content Include="Views\News\Content.cshtml" />
     <Content Include="Views\Activity\Photo.cshtml" />
-    <Content Include="Views\Manage\ActivityKindData.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

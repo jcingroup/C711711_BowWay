@@ -61,11 +61,7 @@
 
                     <a href="~/Manage/NewsList" class='collapse-toggle oi @(ViewBag.subnav == "n1" ? "active" : "")' data-glyph="bell">最新消息管理</a>
 
-                    <header class='collapse-toggle oi @(ViewBag.subnav == "n2" ? "active" : "")' data-glyph="flag">活動剪影管理</header>
-                    <nav class='collapse-content @(ViewBag.subnav == "n2" ? "in" : "")'>
-                        <a href="~/Manage/ActivityKind" class='@(ViewBag.subnav2 == "n2-1" ? "active" : "")'>相簿分類維護</a>
-                        <a href="~/Manage/ActivityList" class='@(ViewBag.subnav2 == "n2-2" ? "active" : "")'>活動剪影相片維護</a>
-                    </nav>
+                    <a href="~/Manage/ActivityList" class='collapse-toggle oi @(ViewBag.subnav == "n2" ? "active" : "")' data-glyph="flag">活動剪影管理</a>
 
                     <header class='collapse-toggle oi @(ViewBag.subnav == "n4" ? "active" : "")' data-glyph="cog">系統設定</header>
                     <nav class='collapse-content @(ViewBag.subnav == "n4" ? "in" : "")'>

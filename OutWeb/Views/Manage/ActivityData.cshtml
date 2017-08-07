@@ -1,9 +1,12 @@
 ﻿
 @{
     Layout = "~/Views/Shared/_MLayout.cshtml";
-    ViewBag.Crumb = "活動剪影 資訊維護";
+    ViewBag.Crumb = "相簿分類維護";
     ViewBag.subnav = "n2";
     ViewBag.subnav2 = "n2-1";
+}
+
+@section scripts {
 }
 
 @section Breadcrumb {
@@ -17,8 +20,8 @@
 
 <form class="form-list">
     <dl class="fields">
-        <dt class="col-1">標題</dt>
-        <dd class="col-10">
+        <dt class="col-1">名稱</dt>
+        <dd class="col-9">
             <input type="text">
         </dd>
     </dl>
@@ -38,20 +41,64 @@
             </label>
         </dd>
     </dl>
+
     <fieldset class="m-t-24">
-        <legend class="underline">[ 內容 ]</legend>
-        <div class="alert-warning m-b-16">
-            <strong>編輯器注意事項:</strong><br>
-            從 WORD 複製文字時，請使用下方的 <img src="/Content/images/icon-word.jpg" /> 圖示來貼上 WORD 文字，避免跑版
+        <legend>[ 上傳圖片 ]</legend>
+
+        @* 拖曳上傳圖片：
+           src https://demos.devexpress.com/aspxfilemanageranduploaddemos/uploadcontrol/DragAndDrop.aspx *@
+        @* 當滑鼠拖檔案在這個區域時，class加上hover，顯示如下
+        <section class="drop-zone hover"> *@
+        <section class="drop-zone">
+            拖曳圖片到此<br>
+            or<br>
+            點此選取檔案
+        </section>
+
+        @* 上傳中才會顯示的進度條 *@
+        <div class="progress">
+            <span class="progbar bg-success"></span>
+            @* <span class="progbar" style="width: 100%">100%</span> *@
         </div>
-        @* 不能上傳圖 *@
-        <textarea rows="12"></textarea>
+
+        @* 上傳完成後的圖片 *@
+        <table class="uploader m-t-32">
+            <colgroup>
+                <col style="width: 15%">
+                <col span="3">
+            </colgroup>
+            <tr>
+                <th>圖片</th>
+                <th>圖說</th>
+                <th>封面圖</th>
+                <th class="item-edit">刪除</th>
+            </tr>
+            <tr>
+                <td>
+                    <img src="https://iso.500px.com/wp-content/uploads/2016/06/stock-photo-142869191-1-1500x1000.jpg" alt="demo圖">
+                </td>
+                <td>
+                    <input type="text" name="" class="form-element">
+                </td>
+                <td>
+                    @* 只能選一個 *@
+                    <label class="switch">
+                        <input type="radio">
+                        <div class="slider round"></div>
+                    </label>
+                </td>
+                <td class="item-edit">
+                    <button class="btn-link text-danger hover-text-danger oi" title="刪除" data-glyph="trash"></button>
+                </td>
+            </tr>
+        </table>
     </fieldset>
+
     <footer class="submit-bar clear m-t-24">
         <button type="button" class="btn success oi" data-glyph="circle-check">
             確認儲存
         </button>
-        <button type="button" class="btn warning oi" data-glyph="circle-x" onclick="location.href='FAQList'">
+        <button type="button" class="btn warning oi" data-glyph="circle-x" onclick="location.href='ActivityKind'">
             回列表
         </button>
     </footer>

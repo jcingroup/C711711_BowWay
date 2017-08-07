@@ -35,17 +35,7 @@ namespace OutWeb.Controllers
             return View();
         }
 
-        // 活動剪影
-        // 分類
-        public ActionResult ActivityKind()
-        {
-            return View();
-        }
-        public ActionResult ActivityKindData()
-        {
-            return View();
-        }
-        // 相片
+        // 活動剪影        
         public ActionResult ActivityList()
         {
             return View();
