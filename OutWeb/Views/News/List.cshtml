@@ -1,53 +1,36 @@
 ﻿
 @{
-    ViewBag.Title = "最新消息";
+    ViewBag.Title = "寶程國際物業最新資訊";
     ViewBag.BodyClass = "News";
+    ViewBag.subnav = "News";
 }
 
-<header class="banner wrap">
-    <img class="pic-full" src="~/Content/images/news/banner.jpg" alt="最新消息banner">
-    <h1><strong class="block">NEWS</strong>@ViewBag.Title</h1>
+<header class="bg-pattern p-y-48">
+    <h1 class="title">@ViewBag.Title</h1>
 </header>
 
-<section class="main small-width">
-    <article id="n1" class="content-list">
-        <span class="date">2017-06-20</span>
-        <header>吃粽子 慶端午 全國門市店休一日</header>
-        <main>
-            @* 編輯器(可傳圖) *@
-            <p>又到了端午節囉!!!</p>
-            <p>端午佳節 5/30(星期二) 全國門市店休一日，若有不便之處，敬請見諒！ 謝謝！</p>
-
-            敬祝 佳節愉快!
-        </main>
-    </article>
-
-    <article id="n2" class="content-list">
-        <span class="date">2017-06-20</span>
-        <header>全國門市 五月份 店休公告</header>
-        <main>
-            <p>桃園店、新竹店、台中店、台南店、高雄店 店休公告(每周三 固定店休)：</p>
-            <p>本月份 5/3、5/10、5/17、5/24、5/30(端午節)、5/31 店休</p>
-            <p>敬請各位親愛的顧客提前光臨門市訂製!! 若造成不便!請見諒哦!!</p>
-        </main>
-    </article>
-
-    <article id="n3" class="content-list">
-        <span class="date">2017-06-20</span>
-        <header>新光銀行-刷卡金現金回饋! 優惠活動實施中!!</header>
-        <main>
-            <p>新光卡友專享!</p>
-            <p>即日起!至十二月底止!</p>
-            <p>凡至EZ西服門市 單筆消費滿NT,800元，即可獲得新光銀行提供之NT刷卡金現金回饋!!!</p>
-            <p>詳見活動說明與注意事項...</p>
-        </main>
-    </article>
-
-    <article id="n4" class="content-list">
-        <span class="date">2017-06-20</span>
-        <header>營業時間調整公告</header>
-        <main>
-            為配合政府工時調整，即日起門市營業時間調整為：中午12:00~晚上10:00，如造成不便 敬請見諒。
-        </main>
-    </article>
-</section>
+<main class="wrap text-left">
+    <ul class="news-list m-t-64">
+        @* 套程式 *@
+        <li class="cell-row">
+            <small class="cell">2017-06-06</small>
+            <a href="~/News/Content" class="cell">寶程之光/淡水蔚城社區榮獲2017年優良公寓大廈獎</a>
+        </li>
+        <li class="cell-row">
+            <small class="cell">2017-06-01</small>
+            <a href="~/News/Content" class="cell">恭賀本公司獲得經濟部中小企業最佳品質服務獎</a>
+        </li>
+        <li class="cell-row">
+            <small class="cell">2017-05-15</small>
+            <a href="~/News/Content" class="cell">寶程國際物業將進駐帝寶社區管理服務</a>
+        </li>
+        <li class="cell-row">
+            <small class="cell">2017-05-08</small>
+            <a href="~/News/Content" class="cell">寶程國際物業提供社區各種表單免費下載</a>
+        </li>
+        <li class="cell-row">
+            <small class="cell">2017-05-03</small>
+            <a href="~/News/Content" class="cell">寶程國際物業董事長獲得總統府優良企業經營獎</a>
+        </li>
+    </ul>
+</main>

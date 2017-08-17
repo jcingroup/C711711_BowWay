@@ -11,7 +11,7 @@ namespace OutWeb.Controllers
 
         public ActionResult Index()
         {
-            return View("News");
+            return View("List");
         }
 
         // 套程式-最新消息

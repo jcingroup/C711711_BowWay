@@ -22,8 +22,45 @@ namespace OutWeb.Controllers
             return View();
         }
 
-        // 聯絡我們
+        // 客服中心
         public ActionResult ContactUs()
+        {
+            return View();
+        }
+
+        // 服務項目
+        public ActionResult Service()
+        {
+            return View();
+        }
+        // 安全防護
+        public ActionResult Security()
+        {
+            return View();
+        }
+        // 事務管理
+        public ActionResult Affair()
+        {
+            return View();
+        }
+        // 設備維護
+        public ActionResult Equipment()
+        {
+            return View();
+        }
+        // 環保清潔
+        public ActionResult Clean()
+        {
+            return View();
+        }
+        // 停車管理
+        public ActionResult Park()
+        {
+            return View();
+        }
+
+        // 菁英招募
+        public ActionResult JoinUs()
         {
             return View();
         }

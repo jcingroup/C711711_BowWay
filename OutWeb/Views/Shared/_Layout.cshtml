@@ -3,10 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    @* <meta name="viewport" content="width=device-width, initial-scale=1.0"> *@
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <title>@ViewBag.Title - ElegaZzle Collezioni EZ西服</title>
+    <title>@ViewBag.Title - 寶程國際集團 Bow Way International Group</title>
     <link rel="stylesheet" href="~/Content/css/vendor/open-iconic.css">
     <link rel="stylesheet" href="~/Content/css/grid.css">
     <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
@@ -25,33 +24,20 @@ else
         <header id="header">
             <div class="wrap">
                 <h1 class="logo" onclick="location.href='@Url.Content("~/Home")'" title="回首頁" tabindex="-1">
-                    ElegaZzle Collezioni EZ西服
+                    寶程國際集團 Bow Way International Group
                 </h1>
                 <ul id="menu" class="navbar list-inline">
-                    <li><a href="~/Home/About" class="@(ViewBag.BodyClass == "About" ? "current" : "")">品牌故事</a></li>
-                    @* <li><a href="~/Home/Gallery" class="@(ViewBag.BodyClass == "Gallery" ? "current" : "")">EZ Gallery</a></li> *@
-                    <li><a href="~/Home/Show_S1" class="@(ViewBag.BodyClass == "Show_S1" ? "current" : "")">男士精品</a></li>
+                    <li><a href="~/Home/AboutUs" class="@(ViewBag.BodyClass == "AboutUs" ? "current" : "")">公司簡介</a></li>
+                    <li><a href="~/Home/Service" class="@(ViewBag.BodyClass == "Service" ? "current" : "")">服務項目</a></li>
                     <li class="dropdown">
-                        <a href="~/Contact" class="dropdown-toggle @(ViewBag.BodyClass == "Stores" ? "current" : "")">門市資訊</a>
-                        <nav class="sub-nav">
-                            <a href="~/Contact/Taipei_concept" class="@(ViewBag.subnav == "store_taipeiC" ? "current" : "")">台北形象概念店</a>
-                            <a href="~/Contact/Con_Xi_Men" class="@(ViewBag.subnav == "store_ximen" ? "current" : "")">台北西門店</a>
-                            <a href="~/Contact/Con_Guang_Fu" class="@(ViewBag.subnav == "store_guangfu" ? "current" : "")">台北光復店</a>
-                            <a href="~/Contact/Con_Tao_Yuan" class="@(ViewBag.subnav == "store_taoyuan" ? "current" : "")">桃園復興店</a>
-                            <a href="~/Contact/Hsin_chu_concept" class="@(ViewBag.subnav == "store_hsinchuC" ? "current" : "")">新竹形象概念店</a>
-                            <a href="~/Contact/Con_Hsin_Chu" class="@(ViewBag.subnav == "store_hsinchu" ? "current" : "")">新竹中華店</a>
-                            <a href="~/Contact/Con_San_Min" class="@(ViewBag.subnav == "store_sanmin" ? "current" : "")">台中英才店</a>
-                            <a href="~/Contact/Con_Tai_Nan" class="@(ViewBag.subnav == "store_tainan" ? "current" : "")">台南中正店</a>
-                            <a href="~/Contact/Con_Zhong_Zheng" class="@(ViewBag.subnav == "store_zhongzheng" ? "current" : "")">高雄中正店</a>
+                        <a href="#" class="dropdown-toggle @(ViewBag.BodyClass == "News" ? "current" : "")">訊息中心</a>
+                        <nav class="sub-nav dropdown-content">
+                            <a href="~/News" class="sub-news @(ViewBag.subnav == "News" ? "current" : "")">相關資訊</a>
+                            <a href="~/Activity" class="sub-act @(ViewBag.subnav == "Activity" ? "current" : "")">活動剪影</a>
                         </nav>
                     </li>
-                    <li><a href="~/Home/Flow" class="@(ViewBag.BodyClass == "Flow" ? "current" : "")">訂製流程</a></li>
-                    <li class="dropdown">
-                        <a href="~/Home/Service" class="dropdown-toggle @(ViewBag.BodyClass == "Service" ? "current" : "")">客戶服務</a>
-                        <nav class="sub-nav">
-                            <a href="~/QandA" class="@(ViewBag.subnav == "QandA" ? "current" : "")">常見問題</a>
-                        </nav>
-                    </li>
+                    <li><a href="~/Home/ContactUs" class="@(ViewBag.BodyClass == "ContactUs" ? "current" : "")">客服中心</a></li>
+                    <li><a href="~/Home/JoinUs" class="@(ViewBag.BodyClass == "JoinUs" ? "current" : "")">菁英招募</a></li>
                 </ul>
             </div>
         </header>
@@ -64,48 +50,25 @@ else
 
     <footer id="footer">
         <div class="wrap row-x-0">
-            <nav class="foot-nav row-x-0">
-                <div class="col-4">
-                    <a href="~/Home/About" class="@(ViewBag.BodyClass == "About" ? "current" : "")">品牌故事</a>
-                    <a href="~/Home/Best_choice" class="@(ViewBag.BodyClass == "Best_choice" ? "current" : "")">選擇EZ的10大理由</a>
-                    <a href="~/Home/Flow" class="@(ViewBag.BodyClass == "Flow" ? "current" : "")">訂製流程</a>
-                    <a href="~/Home/TieKnot" class="@(ViewBag.BodyClass == "TieKnot" ? "current" : "")">領帶的打法</a>
-                    <a href="~/Home/Maintain" class="@(ViewBag.BodyClass == "Maintain" ? "current" : "")">西服保養技巧</a>
-                </div>
-                <div class="col-4">
-                    @* <a href="~/Home/Gallery" class="@(ViewBag.BodyClass == "Gallery" ? "current" : "")">EZ Gallery</a> *@
-                    <a href="~/Home/Show_S1" class="@(ViewBag.BodyClass == "Show_S1" ? "current" : "")">男士精品</a>
-                    <a href="~/Home/Wedding" class="@(ViewBag.BodyClass == "Wedding" ? "current" : "")">新婚賀禮大方送</a>
-                    <a href="~/Home/Event" class="@(ViewBag.BodyClass == "Event" ? "current" : "")">滿額禮優惠活動</a>
-                </div>
-                <div class="col-4">
-                    <a href="~/News" class="@(ViewBag.BodyClass == "News" ? "current" : "")">最新消息</a>
-                    <a href="~/QandA" class="@(ViewBag.subnav == "QandA" ? "current" : "")">常見問題</a>
-                    <a href="~/OnLine" class="@(ViewBag.BodyClass == "OnLine" ? "current" : "")">線上諮詢</a>
-                </div>
-            </nav>
-            <dl class="foot-contact row-x-0">
-                <dt class="underline">門市資訊：</dt>
-                <dd class="col-6">
-                    台北形象概念店/ (02)2711-0033<br> @* new *@
-                    台北西門店/ (02)2375-1000<br>
-                    台北光復店/ (02)2711-0033<br> @* 2778-3356 *@
-                    桃園復興店/ (03)336-6090<br>
-                    新竹形象概念店/ (03)515-3555<br> @* new *@
-                    新竹中華店/ (03)515-3555
-                </dd>
-                <dd class="col-6">
-                    台中英才店/ (04)2322-0008<br>
-                    台南中正店/ (06)220-3311<br>
-                    高雄中正店/ (07)238-2887
+            <h1 class="logo-s">寶程國際集團 Bow Way International Group</h1>
+            <dl class="foot-contact col-6">
+                <dt class="underline">CONTACT US</dt>
+                <dd>
+                    <p class="inline-block">TEL <strong>02-2559-6960</strong></p>
+                    <p class="inline-block m-l-32 m-t-0">FAX <strong>02-2558-3010</strong></p>
+                    <p>台北市大同區重慶北路二段89號</p>
                 </dd>
             </dl>
-            <div class="copyright">
-                <h5 class="logo-s">ElegaZzle Collezioni EZ西服</h5>
-                <a href="https://www.facebook.com/EZ.Suit/" target="new" class="btn-fb">Facebook</a>
-                <p>&copy; 2002 - @DateTime.Now.Year 衣立實業有限公司 <a href="~/Home/Copyright">版權聲明</a></p>
-            </div>
+            <dl class="foot-club col-2 push-1">
+                <dt class="underline">SHARE</dt>
+                <dd>
+                    <a href="#" class="icon-fb">Facebook</a>
+                    <a href="#" class="icon-twitter">Twitter</a>
+                    <a href="#" class="icon-line">Line</a>
+                </dd>
+            </dl>
         </div>
+        <div class="copyright text-center">&copy; 2002 - @DateTime.Now.Year Bow Way International Group</a></div>
     </footer><!-- footer //-->
 
     <script src="//code.jquery.com/jquery-latest.min.js"></script>
@@ -122,12 +85,6 @@ else
             }
         }, { offset: '-1px' } );
 
-        // 暫放
-        $(window).scroll(function () {
-            var scrollTop = $(this).scrollTop();
-            $('#header').css('top', scrollTop);
-        });
-
         // 點選後跳到 href 指向的位置
         $('.scroll').click(function () {
             var scrollToAnchor = $(this).attr('href');
@@ -141,13 +98,20 @@ else
             return false;
         });
 
-        // 行動裝置的主選單
-        $trigger = $('.mobile-toggle');
-        $trigger.click(function () {
-            $(this).toggleClass('active');
-            $('body').toggleClass('mobile-menu');
+        // dropdown
+        var $dropbtn = $(".dropdown-toggle"),
+            dropcontent = ".dropdown-content";
+        $dropbtn.click(function(event){
+            event.stopPropagation();
+            $(this).next(dropcontent).slideToggle("300");
+        });
+        $(window).click(function() {
+            //Hide the menus if visible
+            $(dropcontent).slideUp("500")
         });
     </script>
+
     @RenderSection("scripts", required: false)
+
 </body>
 </html>
