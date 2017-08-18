@@ -267,7 +267,6 @@
     <Content Include="Views\Home\Security.cshtml" />
     <Content Include="Views\Home\Service.cshtml" />
     <Content Include="Views\Home\ContactUs.cshtml" />
-    <Content Include="Views\Shared\_Subnav.cshtml" />
     <Content Include="Views\Shared\Service-nav.cshtml" />
     <Content Include="Views\Shared\Subnav.cshtml" />
   </ItemGroup>
