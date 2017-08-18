@@ -239,7 +239,8 @@
     <Content Include="Content\font\open-iconic\open-iconic.woff" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\Demo.pubxml" />
+    <None Include="Properties\PublishProfiles\Server.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Views\Activity\Album.cshtml" />
     <Content Include="Views\News\List.cshtml" />
