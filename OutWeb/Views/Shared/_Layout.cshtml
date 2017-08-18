@@ -26,19 +26,13 @@ else
                 <h1 class="logo" onclick="location.href='@Url.Content("~/Home")'" title="回首頁" tabindex="-1">
                     寶程國際集團 Bow Way International Group
                 </h1>
-                <ul id="menu" class="navbar list-inline">
-                    <li><a href="~/Home/AboutUs" class="@(ViewBag.BodyClass == "AboutUs" ? "current" : "")">公司簡介</a></li>
-                    <li><a href="~/Home/Service" class="@(ViewBag.BodyClass == "Service" ? "current" : "")">服務項目</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle @(ViewBag.BodyClass == "News" ? "current" : "")">訊息中心</a>
-                        <nav class="sub-nav dropdown-content">
-                            <a href="~/News" class="sub-news @(ViewBag.subnav == "News" ? "current" : "")">相關資訊</a>
-                            <a href="~/Activity" class="sub-act @(ViewBag.subnav == "Activity" ? "current" : "")">活動剪影</a>
-                        </nav>
-                    </li>
-                    <li><a href="~/Home/ContactUs" class="@(ViewBag.BodyClass == "ContactUs" ? "current" : "")">客服中心</a></li>
-                    <li><a href="~/Home/JoinUs" class="@(ViewBag.BodyClass == "JoinUs" ? "current" : "")">菁英招募</a></li>
-                </ul>
+                <nav id="menu">
+                    <a href="~/Home/AboutUs" class="@(ViewBag.BodyClass == "AboutUs" ? "current" : "")">公司簡介</a>
+                    <a href="~/Home/Service" class="@(ViewBag.BodyClass == "Service" ? "current" : "")">服務項目</a>
+                    <a href="~/News" class="@(ViewBag.BodyClass == "News" ? "current" : "")">訊息中心</a>
+                    <a href="~/Home/ContactUs" class="@(ViewBag.BodyClass == "ContactUs" ? "current" : "")">客服中心</a>
+                    <a href="~/Home/JoinUs" class="@(ViewBag.BodyClass == "JoinUs" ? "current" : "")">菁英招募</a>
+                </nav>
             </div>
         </header>
 
@@ -68,7 +62,7 @@ else
                 </dd>
             </dl>
         </div>
-        <div class="copyright text-center">&copy; 2002 - @DateTime.Now.Year Bow Way International Group</a></div>
+        <div class="copyright text-center">&copy; 2017 Bow Way International Group</a></div>
     </footer><!-- footer //-->
 
     <script src="//code.jquery.com/jquery-latest.min.js"></script>
