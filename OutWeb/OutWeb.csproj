@@ -162,14 +162,19 @@
     <Content Include="Content\images\border-3.gif" />
     <Content Include="Content\images\border-4.gif" />
     <Content Include="Content\images\close.png" />
-    <Content Include="Content\images\header-bg.gif" />
     <Content Include="Content\images\header-line.gif" />
+    <Content Include="Content\images\headerBg.jpg" />
     <Content Include="Content\images\icon-fb.gif" />
     <Content Include="Content\images\icon-fb2.gif" />
     <Content Include="Content\images\icon-line.gif" />
     <Content Include="Content\images\icon-line2.gif" />
     <Content Include="Content\images\icon-twitter.gif" />
     <Content Include="Content\images\icon-twitter2.gif" />
+    <Content Include="Content\images\icon-w1.gif" />
+    <Content Include="Content\images\icon-w2.gif" />
+    <Content Include="Content\images\icon-w3.gif" />
+    <Content Include="Content\images\icon-w4.gif" />
+    <Content Include="Content\images\icon-w5.gif" />
     <Content Include="Content\images\index\banner.jpg" />
     <Content Include="Content\images\index\bg-pattern.gif" />
     <Content Include="Content\images\index\deck.gif" />
@@ -192,6 +197,7 @@
     <Content Include="Content\images\next.png" />
     <Content Include="Content\images\pic.jpg" />
     <Content Include="Content\images\prev.png" />
+    <Content Include="Content\images\service\pic.jpg" />
     <Content Include="Content\images\title-line.gif" />
     <Content Include="Content\js\jquery.waypoints.min.js" />
     <Content Include="Content\js\lightbox.min.js" />
@@ -261,6 +267,9 @@
     <Content Include="Views\Home\Security.cshtml" />
     <Content Include="Views\Home\Service.cshtml" />
     <Content Include="Views\Home\ContactUs.cshtml" />
+    <Content Include="Views\Shared\_Subnav.cshtml" />
+    <Content Include="Views\Shared\Service-nav.cshtml" />
+    <Content Include="Views\Shared\Subnav.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
