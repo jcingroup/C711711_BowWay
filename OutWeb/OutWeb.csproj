@@ -153,10 +153,56 @@
     <Content Include="Content\css\index.css" />
     <Content Include="Content\css\login.css" />
     <Content Include="Content\css\page.css" />
+    <Content Include="Content\css\vendor\lightbox.min.css" />
     <Content Include="Content\css\vendor\open-iconic.css" />
     <Content Include="Content\css\vendor\swiper.min.css" />
+    <Content Include="Content\css\vendor\typeahead.css" />
     <Content Include="Content\font\open-iconic\open-iconic.svg" />
+    <Content Include="Content\images\bg-pattern.gif" />
+    <Content Include="Content\images\border-1.gif" />
+    <Content Include="Content\images\border-2.gif" />
+    <Content Include="Content\images\border-3.gif" />
+    <Content Include="Content\images\border-4.gif" />
+    <Content Include="Content\images\close.png" />
+    <Content Include="Content\images\header-line.gif" />
+    <Content Include="Content\images\headerBg.jpg" />
+    <Content Include="Content\images\icon-fb.gif" />
+    <Content Include="Content\images\icon-fb2.gif" />
+    <Content Include="Content\images\icon-line.gif" />
+    <Content Include="Content\images\icon-line2.gif" />
+    <Content Include="Content\images\icon-twitter.gif" />
+    <Content Include="Content\images\icon-twitter2.gif" />
+    <Content Include="Content\images\icon-w1.gif" />
+    <Content Include="Content\images\icon-w2.gif" />
+    <Content Include="Content\images\icon-w3.gif" />
+    <Content Include="Content\images\icon-w4.gif" />
+    <Content Include="Content\images\icon-w5.gif" />
+    <Content Include="Content\images\index\banner.jpg" />
+    <Content Include="Content\images\index\bg-pattern.gif" />
+    <Content Include="Content\images\index\deck.gif" />
+    <Content Include="Content\images\index\icon-w1.gif" />
+    <Content Include="Content\images\index\icon-w1_hover.gif" />
+    <Content Include="Content\images\index\icon-w2.gif" />
+    <Content Include="Content\images\index\icon-w2_hover.gif" />
+    <Content Include="Content\images\index\icon-w3.gif" />
+    <Content Include="Content\images\index\icon-w3_hover.gif" />
+    <Content Include="Content\images\index\icon-w4.gif" />
+    <Content Include="Content\images\index\icon-w4_hover.gif" />
+    <Content Include="Content\images\index\icon-w5.gif" />
+    <Content Include="Content\images\index\icon-w5_hover.gif" />
+    <Content Include="Content\images\index\logo.png" />
+    <Content Include="Content\images\index\menuBg.png" />
+    <Content Include="Content\images\index\pic.jpg" />
+    <Content Include="Content\images\loading.gif" />
+    <Content Include="Content\images\logo-foot.gif" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\next.png" />
+    <Content Include="Content\images\pic.jpg" />
+    <Content Include="Content\images\prev.png" />
+    <Content Include="Content\images\service\pic.jpg" />
+    <Content Include="Content\images\title-line.gif" />
     <Content Include="Content\js\jquery.waypoints.min.js" />
+    <Content Include="Content\js\lightbox.min.js" />
     <Content Include="Content\js\swiper.min.js" />
     <Content Include="Content\noIE\bg.gif" />
     <Content Include="Content\noIE\brow.gif" />
@@ -184,12 +230,11 @@
     </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\AboutUs.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\images\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -202,7 +247,8 @@
     <Content Include="Content\font\open-iconic\open-iconic.woff" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\Demo.pubxml" />
+    <None Include="Properties\PublishProfiles\Server.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Views\Activity\Album.cshtml" />
     <Content Include="Views\News\List.cshtml" />
@@ -215,6 +261,16 @@
     <Content Include="Views\Shared\_MLayout.cshtml" />
     <Content Include="Views\News\Content.cshtml" />
     <Content Include="Views\Activity\Photo.cshtml" />
+    <Content Include="Views\Home\JoinUs.cshtml" />
+    <Content Include="Views\Home\Park.cshtml" />
+    <Content Include="Views\Home\Clean.cshtml" />
+    <Content Include="Views\Home\Equipment.cshtml" />
+    <Content Include="Views\Home\Affair.cshtml" />
+    <Content Include="Views\Home\Security.cshtml" />
+    <Content Include="Views\Home\Service.cshtml" />
+    <Content Include="Views\Home\ContactUs.cshtml" />
+    <Content Include="Views\Shared\Service-nav.cshtml" />
+    <Content Include="Views\Shared\Subnav.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

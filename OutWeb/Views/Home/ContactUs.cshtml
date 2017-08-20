@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "寶程國際物業線上客服";
+    ViewBag.BodyClass = "ContactUs";
+}
+
+<header class="bg-pattern p-y-48">
+    <h1 class="title">@ViewBag.Title</h1>
+</header>
+
+
+<section class="wrap p-y-48">
+    <h5 class="m-t-0">
+        "<strong class="text-danger">*</strong>"號為必填。本線上客服信箱提供各項諮詢服務。
+        為能快速回覆問題，請儘可能填寫所有欄位，謝謝。
+    </h5>
+    @* 收信mail客戶待補 *@
+    <form class="m-t-32 text-left">
+        <dl class="fields">
+            <dt class="col-2">姓名 <strong class="text-danger">*</strong></dt>
+            <dd class="col-8"><input type="text"></dd>
+        </dl>
+        <dl class="fields">
+            <dt class="col-2">電子信箱 <strong class="text-danger">*</strong></dt>
+            <dd class="col-8"><input type="email"></dd>
+        </dl>
+        <dl class="fields">
+            <dt class="col-2">連絡電話 <strong class="text-danger">*</strong></dt>
+            <dd class="col-8"><input type="tel"></dd>
+        </dl>
+        <dl class="fields">
+            <dt class="col-2">傳真電話 <strong class="text-danger">*</strong></dt>
+            <dd class="col-8"><input type="text"></dd>
+        </dl>
+        <dl class="fields">
+            <dt class="col-2">問題說明 <strong class="text-danger">*</strong></dt>
+            <dd class="col-8"><textarea></textarea></dd>
+        </dl>
+        <dl class="fields">
+            <dt class="col-2">驗證碼 <strong class="text-danger">*</strong></dt>
+            <dd class="col-8">
+                <input class="m-b-12" type="text" placeholder="請輸入下圖所看到的文字">
+                <a href="" class="oi inline-block m-t-4" data-glyph="reload">看不懂，重新產生</a>
+            </dd>
+        </dl>
+        <footer class="text-center m-y-48">
+            <button class="btn lg">送出</button>
+            <button class="btn lg info m-l-12">取消</button>
+        </footer>
+    </form>
+</section>

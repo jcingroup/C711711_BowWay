@@ -1,7 +1,56 @@
 ﻿
 @{
-    ViewBag.Title = "Photo";
+    ViewBag.Title = "保全人員職前訓練";  @* 相簿名稱 *@
+    ViewBag.BodyClass = "News";
+    ViewBag.subnav = "Activity";
 }
 
-<h2>Photo</h2>
+@section css {
+    <link rel="stylesheet" href="~/Content/css/vendor/lightbox.min.css">
+}
+@section scripts {
+    <script src="~/Content/js/lightbox.min.js"></script>
+    <script>
+        lightbox.option({
+          'resizeDuration': 200,
+          'imageFadeDuration': 250,
+          'fadeDuration': 200
+        })
+    </script>
+}
 
+<header class="bg-pattern p-y-48">
+    <h1 class="title">@ViewBag.Title</h1>
+    @Html.Partial("subnav")
+</header>
+
+<section class="wrap p-y-48">
+    <nav class="photo-list m-b-32">
+        <a href="~/Content/images/pic.jpg" class="photo" data-lightbox="set" data-title="相片圖說相片圖說相片圖說相片圖說相片圖說相片圖說相片圖說">
+            <img src="~/Content/images/pic.jpg" alt="相片圖說">
+            <span>相片圖說相片圖說相片圖說相片圖說相片圖說相片圖說相片圖說</span>
+        </a>
+        <a href="~/Content/images/pic.jpg" class="photo" data-lightbox="set" data-title="相片圖說">
+            <img src="~/Content/images/pic.jpg" alt="相片圖說">
+            <span>相片圖說</span>
+        </a>
+        <a href="~/Content/images/pic.jpg" class="photo" data-lightbox="set" data-title="相片圖說">
+            <img src="~/Content/images/pic.jpg" alt="相片圖說">
+            <span>相片圖說</span>
+        </a>
+        <a href="~/Content/images/pic.jpg" class="photo" data-lightbox="set" data-title="相片圖說">
+            <img src="~/Content/images/pic.jpg" alt="相片圖說">
+            <span>相片圖說</span>
+        </a>
+        <a href="~/Content/images/pic.jpg" class="photo" data-lightbox="set" data-title="相片圖說">
+            <img src="~/Content/images/pic.jpg" alt="相片圖說">
+            <span>相片圖說</span>
+        </a>
+        <a href="~/Content/images/pic.jpg" class="photo" data-lightbox="set" data-title="相片圖說">
+            <img src="~/Content/images/pic.jpg" alt="相片圖說">
+            <span>相片圖說</span>
+        </a>
+    </nav>
+
+    <a href="Album" class="btn lg">回活動剪影列表</a>
+</section>

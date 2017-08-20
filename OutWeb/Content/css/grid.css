@@ -2,7 +2,6 @@
   content: "";
   display: table;
   clear: both; }
-
 .row + .row {
   margin-top: 0.5rem; }
 
@@ -922,17 +921,32 @@
 
   .offset-xl-11 {
     margin-left: 91.66667%; } }
-.row-x-0 > [class*="col"]:first-child {
+.row-x-0 > [class*="col-"]:first-of-type {
   padding-left: 0; }
-.row-x-0 > [class*="col"]:last-child {
+.row-x-0 > [class*="col-"]:last-of-type {
   padding-right: 0; }
 
-.row-a-0 > [class*="col"] {
+.row-a-0 > [class*="col-"] {
   padding: 0; }
+
+.col {
+  float: left; }
 
 .col-rest {
   overflow: hidden; }
 
-.col {
-  display: inline-block;
+.cell-row {
+  display: table;
+  width: 100%; }
+
+.cell {
+  display: table-cell; }
+
+.valign-top {
   vertical-align: top; }
+
+.valign-middle {
+  vertical-align: middle; }
+
+.valign-bottom {
+  vertical-align: bottom; }
