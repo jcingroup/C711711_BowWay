@@ -1,9 +1,103 @@
-﻿
+﻿@using System.Data
 @{
     Layout = "~/Views/Shared/_MLayout.cshtml";
     ViewBag.Crumb = "相簿分類維護";
     ViewBag.subnav = "n2";
     ViewBag.subnav2 = "n2-1";
+
+    DataTable dt = (DataTable)ViewData["dt"];
+    int row_count = 0;
+    int page_count = 50;
+    int page = (int)ViewData["page"];
+    int pre_page = 0;
+    int top_page = 0;
+    int next_page = 0;
+    int end_page = 0;
+    int min_row = 0;
+    int max_row = 0;
+    int total_page = 0;
+
+    string act_id = "";
+    string act_name = "";
+    string act_sort = "";
+    string img_count = "";
+    string show = "";
+    string show_class = "";
+    string txt_title_query = (string)ViewData["txt_title_query"];
+    string txt_sort = (string)ViewData["txt_sort"];
+    string txt_a_d = (string)ViewData["txt_a_d"];
+    
+    string a_d = "";
+
+    if (txt_a_d == "")
+    {
+        a_d = "asc";
+    }
+    else
+    {
+        a_d = "desc";
+    }
+
+    string class_sort = "";
+    string class_status = "";
+
+    switch (txt_sort)
+    {
+        case "sort":
+            class_sort = a_d;
+            break;
+        case "status":
+            class_status = a_d;
+            break;
+    }
+
+    row_count = dt.Rows.Count;
+    if (row_count % page_count > 0)
+    {
+        total_page = (row_count / page_count) + 1;
+    }
+    else
+    {
+        total_page = row_count / page_count;
+    }
+
+    if (page > total_page)
+    {
+        page = total_page;
+    }
+    else if (page < 1)
+    {
+        page = 1;
+    }
+
+    top_page = 1;
+
+    if (page > 1)
+    {
+        pre_page = page - 1;
+    }
+    else
+    {
+        pre_page = 1;
+    }
+
+    if (total_page > page)
+    {
+        next_page = page + 1;
+    }
+    else
+    {
+        next_page = total_page;
+    }
+
+    end_page = total_page;
+
+    min_row = 10 * (page - 1) + 1;
+    max_row = 10 * page;
+    if (max_row > row_count)
+    {
+        max_row = row_count;
+    }
 }
 
 @section Breadcrumb {
@@ -21,69 +115,222 @@
 </div>
 
 <div class="topBtn-bar btn-group">
-    <button class="btn success oi" data-glyph="plus" onclick="location.href='@Url.Content("ActivityData")'">新增</button>
+    <button class="btn success oi" data-glyph="plus" onclick="location.href='@Url.Content("Activity_Add")'">新增</button>
 </div>
+<form name="form1" id="form1" action="" method="post">
+    <input type="hidden" id="txt_sort" name="txt_sort" value="@txt_sort" />
+    <input type="hidden" id="txt_a_d" name="txt_a_d" value="@txt_a_d" />
+    <header class="table-head form-inline">
+        <input type="text" class="form-control form-control-sm" placeholder="請輸入關鍵字..." id="txt_title_query" name="txt_title_query">
+        <label>前台顯示</label>
+        <select class="form-control form-control-sm" id="txt_show" name="txt_show">
+            <option value="">全部</option>
+            <option value="Y">顯示</option>
+            <option value="N">隱藏</option>
+        </select>
+        <button class="btn btn-sm btn-primary oi" data-glyph="magnifying-glass" id="btn_query" name="btn_query" onclick="form_ok();">搜尋</button>
+    </header>
 
-<header class="table-head form-inline">
-    <input type="text" placeholder="請輸入關鍵字">
-    <label>前台顯示</label>
-    <select>
-        <option>全部</option>
-        <option>顯示</option>
-        <option>隱藏</option>
-    </select>
-    <button class="btn">搜尋</button>
-</header>
+    <table class="table-list table-hover table-striped">
+        <colgroup>
+            <col span="3">
+            <col span="2" style="width: 13%">
+        </colgroup>
+        <thead>
+            <tr>
+                @* 點選排序功能 (點一下遞增, 點兩下遞減)
+            <button class="th-sort-toggle"></button>
+            遞增 asc
+            <button class="th-sort-toggle asc"></button>
+            遞減 desc
+            <button class="th-sort-toggle desc"></button>
+                *@
+                <th class="item-edit">刪除</th>
+                <th class="item-edit">修改</th>
+                <th class="text-left">相簿名稱</th>
+                <th>
+                    @* 點選排序功能 (點一下遞增 asc, 點兩下遞減 desc) *@
+                    <button class="text-xs-center th-sort-toggle @class_status" name="btn_status" id="btn_status" onclick="sort('status');">前台顯示</button>
+                </th>
+                <th>
+                    @* 點選排序功能 (點一下遞增 asc, 點兩下遞減 desc) *@
+                    <button class="text-xs-center th-sort-toggle @class_sort" name="btn_sort" id="btn_sort" onclick="sort('sort');">前台排序</button>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @* 建議: 1頁10筆資料 *@
+            @if (dt.Rows.Count > 0)
+            {
+                for (int i = min_row - 1; i < max_row; i++)
+                {
+                    act_id = dt.Rows[i]["act_id"].ToString();
+                    act_name = dt.Rows[i]["act_name"].ToString();
+                    act_sort = dt.Rows[i]["sort"].ToString();
+                    img_count = dt.Rows[i]["img_count"].ToString();
 
-<table class="table-list table-hover table-striped">
-    <colgroup>
-        <col span="3">
-        <col span="2" style="width: 13%">
-    </colgroup>
-    <tr>
-        @* 點選排序功能 (點一下遞增, 點兩下遞減)
-           <button class="th-sort-toggle"></button>
-           遞增 asc
-           <button class="th-sort-toggle asc"></button>
-           遞減 desc
-           <button class="th-sort-toggle desc"></button>
-        *@
-        <th class="item-edit">刪除</th>
-        <th class="item-edit">修改</th>
-        <th class="text-left">相簿名稱</th>
-        <th>
-            <button class="th-sort-toggle">前台顯示</button>
-        </th>
-        <th>
-            <button class="th-sort-toggle">前台排序</button>
-        </th>
-    </tr>
-    <tr>
-        <td class="item-edit">
-            <button class="btn-link text-danger hover-text-danger oi" title="刪除" data-glyph="trash"></button>
-        </td>
-        <td class="item-edit">
-            <button class="btn-link oi" title="修改" data-glyph="pencil" onclick="location.href='@Url.Content("ActivityData")'"></button>
-        </td>
-        <td class="text-left">TEXT</td>
-        <td>
-            <span class="label-success">顯示</span>
-            @* <span class="label">隱藏</span> *@
-        </td>
-        <td>10</td>
-    </tr>
-</table>
-<footer class="table-foot">
-    <small class="float-r">第 1-1 筆，共 1 筆</small>
-    <nav class="pager">
-        <a href="" class="oi" data-glyph="media-step-backward" title="到最前頁"></a>
-        <a href="" class="oi" data-glyph="chevron-left" title="上一頁"></a>
-        <span>
-            第
-            <input type="number" min="1" value="1">
-            頁，共 1 頁
-        </span>
-        <a href="" class="oi" data-glyph="chevron-right" title="下一頁"></a>
-        <a href="" class="oi" data-glyph="media-step-forward" title="到最後頁"></a>
-    </nav>
-</footer>
+                    if (dt.Rows[i]["status"].ToString() == "Y")
+                    {
+                        show = "顯示";
+                        show_class = "label-success";
+                    }
+                    else
+                    {
+                        show = "隱藏";
+                        show_class = "label-warning";
+                    }
+
+                    <tr>
+                        <td class="text-xs-center">
+                            <button type="button" id="del_@i" name="del_@i" onclick="del('@act_id',@img_count);" class="btn btn-link text-danger oi" data-glyph="trash"></button>
+                        </td>
+                        <td class="text-xs-center">
+                            <button type="button" id="edit_@i" name="edit_@i" onclick="location.href='@Url.Content("~/Manage/Activity_Edit?act_id=" + act_id)';" class="btn btn-link oi" data-glyph="pencil"></button>
+                        </td>
+                        <td class="text-xs-left">@act_name</td>
+                        <td class="text-xs-center"><span class="w3-tag @show_class w3-round">@show</span></td>
+                        <td class="text-xs-center">@act_sort</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td class="text-xs-left" colspan="5">
+                        無資料
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <footer class="table-foot">
+        <small class="float-r">第 @min_row - @max_row 筆，共 @row_count 筆</small>
+        <nav class="pager">
+            <a href="@Url.Content("~/Manage/ActivityList?page=" + top_page.ToString())" class="oi" data-glyph="media-step-backward" title="到最前頁"></a>
+            <a href="@Url.Content("~/Manage/ActivityList?page=" + pre_page.ToString())" class="oi" data-glyph="caret-left" title="上一頁"></a>
+            <span>
+                第
+                <input type="text" class="form-control form-control-sm text-xs-center" style="width:100px" name="page" id="page" value="@page">
+                頁，共 @total_page 頁
+            </span>
+            <a href="@Url.Content("~/Manage/ActivityList?page=" + next_page.ToString())" class="oi" data-glyph="caret-right" title="下一頁"></a>
+            <a href="@Url.Content("~/Manage/ActivityList?page=" + end_page.ToString())" class="oi" data-glyph="media-step-forward" title="到最後頁"></a>
+        </nav>
+    </footer>
+</form>
+<script>
+        $('#form1').on('keyup keypress', function (e) {
+            var keyCode = e.keyCode || e.which;
+            if (keyCode === 13) {
+                e.preventDefault();
+                return false;
+            }
+        });
+        //$('#page').on('keydown', function (e) {
+        //    if (e.which == 13) {
+        //        //alert('clicked');
+        //        document.form1.submit();
+        //    }
+        //});
+
+        //$('#txt_title_query').on('keydown', function (e) {
+        //    if (e.which == 13) {
+        //        //alert('clicked');
+        //        document.form1.submit();
+        //    }
+        //});
+
+        //$('#txt_start_date').on('keydown', function (e) {
+        //    if (e.which == 13) {
+        //        //alert('clicked');
+        //        document.form1.submit();
+        //    }
+        //});
+
+        //$('#txt_end_date').on('keydown', function (e) {
+        //    if (e.which == 13) {
+        //        //alert('clicked');
+        //        document.form1.submit();
+        //    }
+        //});
+
+        //$('#txt_lang').on('keydown', function (e) {
+        //    if (e.which == 13) {
+        //        //alert('clicked');
+        //        document.form1.submit();
+        //    }
+        //});
+
+        function form_ok() {
+            $('#form1').submit();
+        }
+
+        function del(act_id,img_count)
+        {
+            if(img_count > 0)
+            {
+                alert("此活動花絮還有照片，請全數刪除之後再行刪除。謝謝~~");
+                return false;
+            }
+            else
+            {
+                //alert("act_id:" + act_id);
+                location.href = '@Url.Content("~/Manage/Activity_Del")?act_id=' + act_id;
+            }
+        }
+
+        function sort(c_sort) {
+            var pre_sort = $('#txt_sort').val();
+            var pre_a_d = $('#txt_a_d').val();
+            var a_d = "";
+            var s_sort = "";
+            var class_a_d = "";
+
+            s_sort = c_sort;
+            if (pre_sort == c_sort) {
+                if (pre_a_d == "") {
+                    a_d = "desc";
+                }
+                else {
+                    a_d = "";
+                }
+            }
+            else {
+                a_d = "";
+            }
+
+            //alert("pre_sort:" + pre_sort + ";pre_a_d:" + pre_a_d + ";a_d:" + a_d + ";s_sort=" + s_sort)
+
+            $('#txt_sort').val(s_sort);
+            $('#txt_a_d').val(a_d);
+
+            $('#form1').submit();
+
+        }
+
+        //$('#btn_area').click(function (e) {
+        //    var pre_sort = $('#txt_sort').val();
+        //    var pre_a_d = $('#txt_a_d').val();
+        //    var a_d = "";
+        //    var sort = "";
+        //    if(pre_sort == "area")
+        //    {
+        //        if(pre_a_d == "")
+        //        {
+        //            a_d = "desc";
+        //        }
+        //        else
+        //        {
+        //            a_d = "";
+        //        }
+        //    }
+        //    else
+        //    {
+        //        sort = "area";
+        //        a_d = "";
+        //    }
+        //});
+        //$('#page').click(function (e) {
+        //    alert('clicked');
+        //});
+</script>

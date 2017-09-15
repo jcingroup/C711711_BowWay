@@ -18,6 +18,12 @@
     {
         <link rel="stylesheet" href="~/Content/css/admin.css">
     }
+
+    @* 引用 jQuery *@
+    <script src="//code.jquery.com/jquery-latest.min.js"></script>
+    @* 引用 jQuery *@
+    @*<script src="~/Scripts/jquery-1.10.2.min.js"></script>*@
+
     @RenderSection("css", false)
 </head>
 
@@ -26,21 +32,32 @@
     <div class="wrapper">
         @if (!ViewBag.IsFirstPage)
         {
-            <header id="header">
-                <h1 class="logo">@ViewBag.mainName</h1>
+            if (Convert.ToString(Session["IsLogined"]) != "Y")
+            {
+                Response.Redirect(Url.Content("~/Manage/Login"));
+            }
+            else
+            {
+                <header id="header">
+                    <h1 class="logo">
+                        <a class="navbar-brand" href="@Url.Content("~/Manage")" title="回登入首頁" tabindex="-1">
+                            @ViewBag.mainName
+                        </a>
+                    </h1>
 
-                <nav class="navbar">
-                    <span class="nav-link">登入身份: 管理者</span>
+                    <nav class="navbar">
+                        <span class="nav-link">登入身份: @Convert.ToString(Session["account"])</span>
 
-                    <a href="~/Home" class="nav-link oi home" data-glyph="home">
-                        回首頁
-                    </a>
+                        <a href="@Url.Content("~/Home")" class="nav-link oi home" data-glyph="home">
+                            回首頁
+                        </a>
 
-                    <a href="~/Manage/Login" class="nav-link oi logout" data-glyph="power-standby">
-                        登出
-                    </a>
-                </nav>
-            </header><!-- header //-->
+                        <a href="@Url.Content("~/Manage/Logout")" class="nav-link oi logout" data-glyph="power-standby">
+                            登出
+                        </a>
+                    </nav>
+                </header><!-- header //-->
+            }
         }
 
         <main id="main">
@@ -79,8 +96,7 @@
         <small>本網站適用 Chrome, firefox, IE10.0+, 最佳瀏覽解析度為 1280*800 以上</small>
     </footer><!-- footer //-->
 
-    @* 引用 jQuery *@
-    <script src="//code.jquery.com/jquery-latest.min.js"></script>
+
 
     @if (!ViewBag.IsFirstPage)
     {
@@ -96,7 +112,7 @@
             });
         </script>
     }
-
+    @*RenderSection("IncludeScript", false)*@
     @RenderSection("scripts", false)
 </body>
 </html>
