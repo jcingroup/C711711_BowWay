@@ -26,7 +26,7 @@
     string txt_title_query = (string)ViewData["txt_title_query"];
     string txt_sort = (string)ViewData["txt_sort"];
     string txt_a_d = (string)ViewData["txt_a_d"];
-    
+
     string a_d = "";
 
     if (txt_a_d == "")
@@ -177,26 +177,26 @@
                     else
                     {
                         show = "隱藏";
-                        show_class = "label-warning";
+                        show_class = "";
                     }
 
                     <tr>
-                        <td class="text-xs-center">
+                        <td>
                             <button type="button" id="del_@i" name="del_@i" onclick="del('@act_id',@img_count);" class="btn btn-link text-danger oi" data-glyph="trash"></button>
                         </td>
-                        <td class="text-xs-center">
+                        <td>
                             <button type="button" id="edit_@i" name="edit_@i" onclick="location.href='@Url.Content("~/Manage/Activity_Edit?act_id=" + act_id)';" class="btn btn-link oi" data-glyph="pencil"></button>
                         </td>
-                        <td class="text-xs-left">@act_name</td>
-                        <td class="text-xs-center"><span class="w3-tag @show_class w3-round">@show</span></td>
-                        <td class="text-xs-center">@act_sort</td>
+                        <td class="text-left">@act_name</td>
+                        <td><span class="label @show_class">@show</span></td>
+                        <td>@act_sort</td>
                     </tr>
                 }
             }
             else
             {
                 <tr>
-                    <td class="text-xs-left" colspan="5">
+                    <td class="text-left" colspan="5">
                         無資料
                     </td>
                 </tr>

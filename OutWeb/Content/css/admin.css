@@ -377,6 +377,8 @@ a, area, button, [role="button"], input, label, select, summary, textarea {
   cursor: hand;
   z-index: 10;
   line-height: 46px; }
+  .logo a {
+    color: inherit; }
 
 #footer {
   min-height: 70px;
@@ -685,6 +687,9 @@ select {
   padding-right: 3.0rem; }
   select:focus {
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="14" viewBox="0 0 29 14" width="29"><path fill="%23313131" d="M9.37727 3.625l5.08154 6.93523L19.54036 3.625"/></svg>'); }
+
+input[type='file'] {
+  padding: 0; }
 
 input[type='checkbox'],
 input[type='radio'] {

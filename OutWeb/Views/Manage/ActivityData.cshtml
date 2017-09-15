@@ -1,7 +1,7 @@
 ﻿@using System.Data
 @{
     Layout = "~/Views/Shared/_MLayout.cshtml";
-    ViewBag.Crumb = "相簿分類維護";
+    ViewBag.Crumb = "相簿維護";
     ViewBag.subnav = "n2";
     ViewBag.subnav2 = "n2-1";
 
@@ -39,13 +39,13 @@
         c_status = "Y";
         c_front_status = "";
         c_sort = "0";
-        
+
 
     }
     else if (action_sty == "edit")
     {
         action_name = "修改";
-        
+
         act_id = d_activity.Rows[0]["act_id"].ToString();
         act_name = d_activity.Rows[0]["act_name"].ToString();
         act_desc = d_activity.Rows[0]["act_desc"].ToString();
@@ -293,52 +293,68 @@
     }
 </script>
 
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-<link href="~/Content/css/upload_image.css" rel='stylesheet' type='text/css'>
+@* <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"> *@
+<link href="~/Content/css/upload_image.css" rel='stylesheet'>
 <script src="~/Content/js/upload_image.js"></script>
+
+<div class="alert-warning font-sm">
+    <strong>注意事項：</strong> 要上傳的圖片建議寬度不超過1000px，高度不超過800px，檔案大小不超過1MB (1MB=1000kb)，解析度建議設為 72dpi。<br>
+    <strong>刪除相簿：</strong> 請先將相簿內的圖片全部刪除後，才能刪除相簿。
+</div>
 
 <form action="Activity_Save" class="form-list" name="form1" id="form1" method="post" enctype="multipart/form-data">
     <input type="hidden" name="action_sty" id="action_sty" value="@action_sty" />
     <input type="hidden" name="act_id" id="act_id" value="@act_id" />
     <input type="hidden" name="img_no" id="img_no" value="@img_no" />
-    <input type="hidden" name="img_count" id="img_count" value="@img_count" />    
-    <dl class="fields">
-        <dt class="col-1">名稱</dt>
-        <dd class="col-11">
-            <input type="text" name="act_name" id="act_name" value="@act_name" />
-        </dd>
-    </dl>
-    <dl class="fields">
-        <dt class="col-1">排序</dt>
-        <dd class="col-5">
-            <input type="number" value="@c_sort" class="inline" name="act_sort" id="act_sort">
-            <small>數字愈大愈前面</small>
-        </dd>
-    </dl>
-    <dl class="fields">
-        <dt class="col-1">前台顯示</dt>
-        <dd class="col-5">
-            @*<div class="slider round">*@
-            @*    <label class="switch">*@
-                    <input type="checkbox" name="show" id="show" @c_front_status >
-            @*    </label>*@
-            @*</div>*@
-        </dd>
-    </dl>
+    <input type="hidden" name="img_count" id="img_count" value="@img_count" />
 
-    <fieldset class="m-t-24">
-        <legend>[ 上傳圖片 ]</legend>
-        <div class="alert-warning m-b-16">
-            <strong>注意事項:</strong><br>
-            圖片建議寬度不超過1000px，高度不超過800px，檔案大小不超過2MB (1MB=1000kb)
+    <section class="row row-x-0 m-y-48">
+        <div class="col-6">
+            <dl class="fields">
+                <dt class="col-2">名稱</dt>
+                <dd class="col-10">
+                    <input type="text" name="act_name" id="act_name" value="@act_name" />
+                </dd>
+            </dl>
+            <dl class="fields">
+                <dt class="col-2">排序</dt>
+                <dd class="col-10">
+                    <input type="number" value="@c_sort" class="inline" name="act_sort" id="act_sort">
+                    <small>數字愈大愈前面</small>
+                </dd>
+            </dl>
+            <dl class="fields">
+                <dt class="col-2">前台顯示</dt>
+                <dd class="col-10">
+                    <label class="switch">
+                        <input type="checkbox" name="show" id="show" @c_front_status >
+                        <div class="slider round"></div>
+                    </label>
+                </dd>
+            </dl>
         </div>
+        <div class="col-6">
+            <dl class="fields">
+                <dt class="col-2">圖片上傳</dt>
+                <dd class="col-10">
+                    <input type="file" class="form-element" name="pic_B" id="pic_B" accept="image/*" />
+                    <button type="button" class="btn info sm oi m-t-8" data-glyph="data-transfer-upload" name="btn_activity_pic" onclick="upload('');">
+                        上傳
+                    </button>
+                </dd>
+            </dl>
+        </div>
+    </section>
 
-        @* 拖曳上傳圖片 *@
+    <fieldset>
+        <legend class="text-primary">[ 已上傳圖片 ]</legend>
+
+        @* 拖曳上傳圖片
         <div class="container image-container">
             <table>
                 <tr>
                     <td style="width:80%;text-align:left;">
-                        @* 瀏覽&上傳檔案 *@
+                        @* 瀏覽&上傳檔案
                         <input type="file" class="form-control" name="pic_B" id="pic_B" accept="image/*" style="width:100%;" />
                     </td>
                     <td style="text-align:center;width:100px;">
@@ -348,19 +364,19 @@
                     </td>
                 </tr>
             </table>
-        </div>
-        <div id="images_container" name="images_container" class="container">
+        </div> *@
+        <div id="images_container" name="images_container">
             @* 上傳完成後的圖片 *@
             @if (d_activity_img.Rows.Count > 0)
             {
-                <table class="uploader m-t-32">
+                <table class="uploader">
                     <colgroup>
                         <col style="width: 15%">
                         <col span="3">
                     </colgroup>
                     <tr>
                         <th>圖片</th>
-                        <th>圖說</th>
+                        <th class="text-left">圖說</th>
                         <th>封面圖</th>
                         <th class="item-edit">刪除</th>
                     </tr>
@@ -386,12 +402,11 @@
                                 <input type="text" name="img_desc[]" id="img_desc[]" class="form-element" value="@img_desc">
                             </td>
                             <td>
-                                @*<div class="slider round">*@
-                                    @* 只能選一個 *@
-                                    @*<label class="switch">*@
-                                        <input type="radio" name="is_index" id="is_index" value="@img_id" @img_is_index >
-                                    @*</label>*@
-                                @*</div>*@
+                                @* 只能選一個 *@
+                                <label class="switch">
+                                    <input type="radio" name="is_index" id="is_index" value="@img_id" @img_is_index >
+                                    <div class="slider round"></div>
+                                </label>
                             </td>
                             <td class="item-edit">
                                 <button class="btn-link text-danger hover-text-danger oi" id="btn_close_B_@b" name="btn_close_B_@b" title="刪除" data-glyph="trash" onclick="del_img('@img_id','');"></button>
@@ -399,7 +414,7 @@
                         </tr>
                     }
                 </table>
-            }    
+            }
         </div>
         <div id="img" name="img"></div>
     </fieldset>

@@ -31,7 +31,7 @@
     string txt_a_d = (string)ViewData["txt_a_d"];
     string txt_start_date = (string)ViewData["txt_start_date"];
     string txt_end_date = (string)ViewData["txt_end_date"];
-    
+
     string a_d = "";
 
     if (txt_a_d == "")
@@ -123,7 +123,7 @@
     </ul>
 }
 
-<h3 class="title">@ViewBag.Crumb</h3>
+<h3 class="title">@ViewBag.Crumb </h3>
 
 <div class="alert-warning m-b-16">
     <strong>前台排序：</strong> 數字愈大愈前面。
@@ -139,26 +139,30 @@
     <input type="hidden" id="txt_a_d" name="txt_a_d" value="@txt_a_d" />
 
     <header class="table-head form-inline">
-        <input type="text" class="form-control form-control-sm" placeholder="請輸入關鍵字..." id="txt_title_query" name="txt_title_query">
-        <label>發佈日期</label>
-        <label class="text-sm w3-margin-left">日期</label> @* 如要顯示文字: 把 sr-only 拿掉 *@
+        <input type="text" placeholder="請輸入關鍵字..." id="txt_title_query" name="txt_title_query">
+
         @* 用 datetimepicker (之類的東西) 選日期 *@
-        <input type="date" class="form-control form-control-sm" id="txt_start_date" name="txt_start_date" value="@txt_start_date">
-        <label class="text-sm">~</label>
-        <input type="date" class="form-control form-control-sm" id="txt_end_date" name="txt_end_date" value="@txt_end_date">
+        <label>起</label>
+        <input type="date" id="txt_start_date" name="txt_start_date" value="@txt_start_date">
+        ~
+        <label>迄</label>
+        <input type="date" id="txt_end_date" name="txt_end_date" value="@txt_end_date">
+
         <label>前台顯示</label>
-        <select class="form-control form-control-sm" id="txt_show" name="txt_show">
+        <select id="txt_show" name="txt_show">
             <option value="">全部</option>
             <option value="Y">顯示</option>
             <option value="N">隱藏</option>
         </select>
+
         <label>首頁顯示</label>
-        <select class="form-control form-control-sm" id="txt_index" name="txt_index">
+        <select id="txt_index" name="txt_index">
             <option value="">全部</option>
             <option value="Y">顯示</option>
             <option value="N">隱藏</option>
         </select>
-        <button class="btn btn-sm btn-primary oi" data-glyph="magnifying-glass" id="btn_query" name="btn_query" onclick="form_ok();">搜尋</button>
+
+        <button class="btn sm oi" data-glyph="magnifying-glass" id="btn_query" name="btn_query" onclick="form_ok();">搜尋</button>
     </header>
     <table class="table-list table-hover table-striped">
         <colgroup>
@@ -217,7 +221,7 @@
                     else
                     {
                         show = "隱藏";
-                        show_class = "label-warning";
+                        show_class = "";
                     }
 
                     if (dt.Rows[i]["is_index"].ToString() == "Y")
@@ -228,27 +232,27 @@
                     else
                     {
                         str_index = "隱藏";
-                        index_class = "label-warning";
+                        index_class = "";
                     }
                     <tr>
-                        <td class="text-xs-center">
+                        <td>
                             <button type="button" onclick="location.href='@Url.Content("~/Manage/News_Del?n_id=" + n_id)';" class="btn btn-link text-danger oi" data-glyph="trash"></button>
                         </td>
-                        <td class="text-xs-center">
+                        <td>
                             <button type="button" onclick="location.href='@Url.Content("~/Manage/News_Edit?n_id=" + n_id)';" class="btn btn-link oi" data-glyph="pencil"></button>
                         </td>
-                        <td class="text-xs-left">@n_title</td>
-                        <td class="text-xs-center">@n_date</td>
-                        <td class="text-xs-center"><span class="w3-tag @show_class w3-round">@show</span></td>
-                        <td class="text-xs-center"><span class="w3-tag @index_class w3-round">@str_index</span></td>
-                        <td class="text-xs-center">@n_sort</td>
+                        <td class="text-left">@n_title</td>
+                        <td>@n_date</td>
+                        <td><span class="label @show_class">@show</span></td>
+                        <td><span class="label @index_class">@str_index</span></td>
+                        <td>@n_sort</td>
                     </tr>
                 }
             }
             else
             {
                 <tr>
-                    <td class="text-xs-left" colspan="7">
+                    <td class="text-left" colspan="7">
                         無資料
                     </td>
                 </tr>
