@@ -130,16 +130,16 @@
                     c_html = c_html + "        <input type=\"text\" name=\"img_desc[]\" id=\"img_name[]\" class=\"form-element\" value=\"" + obj.img_desc + "\">";
                     c_html = c_html + "    </td>";
                     c_html = c_html + "    <td>";
-                    //c_html = c_html + "        <div class=\"slider round\">";
-                    //c_html = c_html + "            <label class=\"switch\">";
-                    c_html = c_html + "                <input type=\"radio\" name=\"is_index\" id=\"is_index\" value=\"" + obj.img_id + "\"";
+                    
+                    c_html = c_html + "       <label class=\"switch\">";
+                    c_html = c_html + "           <input type=\"radio\" name=\"is_index\" id=\"is_index\" value=\"" + obj.img_id + "\"";
                     if(obj.is_index == "Y")
                     {
                         c_html = c_html + " checked ";
                     }
                     c_html = c_html + ">";
-                    //c_html = c_html + "            </label>";
-                    //c_html = c_html + "       </div>";
+                    c_html = c_html + "        <div class=\"slider round\"></div>";
+                    c_html = c_html + "       </label>";
                     c_html = c_html + "    </td>";
                     c_html = c_html + "    <td class=\"item-edit\">";
                     c_html = c_html + "        <button class=\"btn-link text-danger hover-text-danger oi\" id=\"btn_close_B_" + i + "\" name=\"btn_close_B_" + i + "\" title=\"刪除\" data-glyph=\"trash\" onclick=\"del_img('" + obj.img_id + "','');\"></button>";
@@ -229,17 +229,17 @@
                         c_html = c_html + "        <input type=\"text\" name=\"img_desc[]\" id=\"img_name[]\" class=\"form-element\" value=\"" + obj.img_desc + "\">";
                         c_html = c_html + "    </td>";
                         c_html = c_html + "    <td>";
-                        //c_html = c_html + "        <div class=\"slider round\">";
-                        //c_html = c_html + "            <label class=\"switch\">";
-                        c_html = c_html + "                <input type=\"radio\" name=\"is_index\" id=\"is_index\" value=\"" + obj.img_id + "\"";
+                        
+                        c_html = c_html + "       <label class=\"switch\">";
+                        c_html = c_html + "           <input type=\"radio\" name=\"is_index\" id=\"is_index\" value=\"" + obj.img_id + "\"";
                         if(obj.is_index == "Y")
                         {
                             c_html = c_html + " checked ";
                         }
 
                         c_html = c_html + ">";
-                        //c_html = c_html + "            </label>";
-                        //c_html = c_html + "       </div>";
+                        c_html = c_html + "           <div class=\"slider round\"></div>";
+                        c_html = c_html + "       </label>";
                         c_html = c_html + "    </td>";
                         c_html = c_html + "    <td class=\"item-edit\">";
                         c_html = c_html + "        <button class=\"btn-link text-danger hover-text-danger oi\" id=\"btn_close_B_" + i + "\" name=\"btn_close_B_" + i + "\" title=\"刪除\" data-glyph=\"trash\" onclick=\"del_img('" + obj.img_id + "','');\"></button>";
