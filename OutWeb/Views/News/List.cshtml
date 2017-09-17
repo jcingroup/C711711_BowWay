@@ -1,8 +1,16 @@
-﻿
+﻿@using System.Data
+@using System.Text.RegularExpressions
+
 @{
     ViewBag.Title = "寶程國際物業最新資訊";
     ViewBag.BodyClass = "News";
     ViewBag.subnav = "News";
+
+    DataTable d_news = (DataTable)ViewData["d_news"];
+    string n_id = "";
+    string n_title = "";
+    string n_date = "";
+    string n_desc = "";
 }
 
 <header class="bg-pattern p-y-48">
@@ -13,25 +21,42 @@
 <main class="wrap text-left p-y-64">
     <ul class="news-list">
         @* 套程式 *@
-        <li class="cell-row">
-            <small class="cell">2017-06-06</small>
-            <a href="~/News/Content" class="cell">寶程之光/淡水蔚城社區榮獲2017年優良公寓大廈獎</a>
-        </li>
-        <li class="cell-row">
-            <small class="cell">2017-06-01</small>
-            <a href="~/News/Content" class="cell">恭賀本公司獲得經濟部中小企業最佳品質服務獎</a>
-        </li>
-        <li class="cell-row">
-            <small class="cell">2017-05-15</small>
-            <a href="~/News/Content" class="cell">寶程國際物業將進駐帝寶社區管理服務</a>
-        </li>
-        <li class="cell-row">
-            <small class="cell">2017-05-08</small>
-            <a href="~/News/Content" class="cell">寶程國際物業提供社區各種表單免費下載</a>
-        </li>
-        <li class="cell-row">
-            <small class="cell">2017-05-03</small>
-            <a href="~/News/Content" class="cell">寶程國際物業董事長獲得總統府優良企業經營獎</a>
-        </li>
+        @if (d_news.Rows.Count > 0)
+        {
+            for (int i = 0; i < d_news.Rows.Count; i++)
+            {
+                n_id = d_news.Rows[i]["n_id"].ToString();
+                n_title = d_news.Rows[i]["n_title"].ToString();
+                n_date = d_news.Rows[i]["n_date"].ToString();
+                n_desc = RemoveHTMLTag(d_news.Rows[i]["n_desc"].ToString());
+                if (n_desc.Length > 120)
+                {
+                    n_desc = n_desc.Substring(0, 120) + "...";
+                }
+
+                <li class="cell-row">
+                    <small class="cell">@n_date</small>
+                    <a href="@Url.Content("~/News/NewsData?n_id=" + n_id)" class="cell">@n_title</a>
+                </li>
+            }
+        }
     </ul>
 </main>
+
+@functions
+{
+    /// <summary>
+    /// 移除html tag
+    /// </summary>
+    /// <param name="htmlSource"></param>
+    /// <returns></returns>
+    public static string RemoveHTMLTag(string htmlSource)
+    {
+        //移除  javascript code.
+        htmlSource = Regex.Replace(htmlSource, @"<script[\d\D]*?>[\d\D]*?</script>", String.Empty);
+
+        //移除html tag.
+        htmlSource = Regex.Replace(htmlSource, @"<[^>]*>", String.Empty);
+        return htmlSource;
+    }
+}

@@ -1,8 +1,30 @@
-﻿
+﻿@using System.Data
 @{
     ViewBag.Title = "寶程國際物業最新資訊";
     ViewBag.BodyClass = "News";
     ViewBag.subnav = "News";
+
+    DataTable d_news = (DataTable)ViewData["d_news"];
+    string n_id = "";
+    string n_title = "";
+    string n_desc = "";
+    string n_date = "";
+    string n_url = "";
+    string sort = "";
+    string is_index = "";
+    string c_status = "";
+
+    if (d_news.Rows.Count > 0)
+    {
+        n_id = d_news.Rows[0]["n_id"].ToString();
+        n_title = d_news.Rows[0]["n_title"].ToString();
+        n_desc = d_news.Rows[0]["n_desc"].ToString();
+        n_date = d_news.Rows[0]["n_date"].ToString();
+        n_url = d_news.Rows[0]["n_url"].ToString();
+        is_index = d_news.Rows[0]["is_index"].ToString();
+        c_status = d_news.Rows[0]["status"].ToString();
+        sort = d_news.Rows[0]["sort"].ToString();
+    }
 }
 
 <header class="bg-pattern p-y-48">
@@ -12,14 +34,13 @@
 
 <section class="wrap p-y-48">
     <article class="news-content text-left">
-        <span class="date">2017-06-20</span>
-        <header class="font-xxl">電梯昇降設備設置及檢查管理辦法之研修及未來制度</header class="font-xl">
+        <span class="date">@n_date</span>
+        <header class="font-xxl">@n_title</header class="font-xl">
         <main>
             @* 編輯器(可傳圖) *@
-            <p>電梯昇降設備設置及檢查管理辦法之研修及未來制度</p>
-            <p>電梯昇降設備設置及檢查管理辦法之研修及未來制度電梯昇降設備設置及檢查管理辦法之研修及未來制度電梯昇降設備設置及檢查管理辦法之研修及未來制度電梯昇降設備設置及檢查管理辦法之研修及未來制度電梯昇降設備設置及檢查管理辦法之研修及未來制度</p>
+            @Html.Raw(n_desc)
         </main>
     </article>
 
-    <a href="List" class="btn lg">回列表</a>
+    <a href="@Url.Content("~/News")" class="btn lg">回列表</a>
 </section>
