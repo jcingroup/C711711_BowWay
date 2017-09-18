@@ -361,7 +361,16 @@ namespace OutWeb.Controllers
                 DB.Img_Update(str_img_id, "",str_img_desc,str_index, "Activity");
             }
 
-            return RedirectToAction("ActivityList");
+            //return RedirectToAction("ActivityList");
+            return Redirect("~/Manage/Activity_Edit?act_id=" + act_id);
+            //DataTable d_activity = DB.Activity_List(act_id);
+            //DataTable d_activity_img = DB.Img_List(act_id, "", "Activity");
+
+            //ViewData["d_activity"] = d_activity;
+            //ViewData["d_activity_img"] = d_activity_img;
+            //ViewData["action_sty"] = "edit";
+
+            //return View("ActivityData");
         }
         // 修改密碼
         public ActionResult ChangePW()
