@@ -551,6 +551,8 @@
     <Content Include="Content\css\vendor\swiper.min.css" />
     <Content Include="Content\css\vendor\typeahead.css" />
     <Content Include="Content\font\open-iconic\open-iconic.svg" />
+    <Content Include="Content\images\aboutus\introBg.jpg" />
+    <Content Include="Content\images\aboutus\pic.png" />
     <Content Include="Content\images\bg-pattern.gif" />
     <Content Include="Content\images\border-1.gif" />
     <Content Include="Content\images\border-2.gif" />
@@ -592,7 +594,14 @@
     <Content Include="Content\images\next.png" />
     <Content Include="Content\images\pic.jpg" />
     <Content Include="Content\images\prev.png" />
+    <Content Include="Content\images\service\affair.jpg" />
+    <Content Include="Content\images\service\clean.jpg" />
+    <Content Include="Content\images\service\equipment.jpg" />
+    <Content Include="Content\images\service\park.jpg" />
     <Content Include="Content\images\service\pic.jpg" />
+    <Content Include="Content\images\service\security.jpg" />
+    <Content Include="Content\images\service\security2.jpg" />
+    <Content Include="Content\images\service\security3.jpg" />
     <Content Include="Content\images\title-line.gif" />
     <Content Include="Content\js\jquery.waypoints.min.js" />
     <Content Include="Content\js\lightbox.min.js" />

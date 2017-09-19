@@ -119,27 +119,27 @@
         <input type="hidden" name="show" id="show" value="" />
         <input type="hidden" name="hot" id="hot" value="" />
         <dl class="fields">
-            <dt class="col-1">發佈日期</dt>
-            <dd class="col-3">
+            <dt class="col-2">發佈日期</dt>
+            <dd class="col-4">
                 <input type="date" required id="n_date" name="n_date" value="@n_date" >@* 用 datetimepicker (之類的東西) 選日期 *@
             </dd>
         </dl>
         <dl class="fields">
-            <dt class="col-1">標題</dt>
-            <dd class="col-9">
+            <dt class="col-2">標題</dt>
+            <dd class="col-10">
                 <input type="text" class="form-control form-control-sm" required id="n_title" name="n_title" value="@n_title">
             </dd>
         </dl>
         <dl class="fields">
-            <dt class="col-1">排序</dt>
-            <dd class="col-5">
+            <dt class="col-2">排序</dt>
+            <dd class="col-4">
                 <input type="number" min="0" class="inline" id="sort" name="sort" value="@sort">
                 <small>數字愈大愈前面</small>
             </dd>
         </dl>
         <dl class="fields">
-            <dt class="col-1">前台顯示</dt>
-            <dd class="col-5">
+            <dt class="col-2">前台顯示</dt>
+            <dd class="col-4">
                 <label class="switch">
                     <input type="checkbox" name="cshow" id="cshow" @c_front_status>
                     <div class="slider round"></div>
@@ -147,8 +147,8 @@
             </dd>
         </dl>
         <dl class="fields">
-            <dt class="col-1">首頁顯示</dt>
-            <dd class="col-5">
+            <dt class="col-2">首頁顯示</dt>
+            <dd class="col-4">
                 <label class="switch">
                     <input type="checkbox" name="chot" id="chot" @c_index_status>
                     <div class="slider round"></div>

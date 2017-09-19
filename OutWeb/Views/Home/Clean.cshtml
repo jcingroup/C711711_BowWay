@@ -2,14 +2,28 @@
 @{
     ViewBag.Title = "環保清潔";
     ViewBag.BodyClass = "Service";
+    ViewBag.SubNav = "Clean";
 }
 
 <header class="bg-pattern p-y-48">
     <h1 class="title">@ViewBag.Title</h1>
 </header>
 
-<section class="p-y-48 font-xl">
-    網頁製作中
-</section>
-
 @Html.Partial("service-nav")
+
+<section class="content wrap">
+    <article class="col-6">
+        <p>環境維護與清潔工作即將跨入新的紀元，我們衷心期盼能和所有合作夥伴們一同成展，潔淨舒適的生活空間是國人邁向高品味生活的基本要求，無論您的需求是居家清潔、公司、辦公室清潔，石材美容或地板拋光…等，我們給客戶親切周到而多元化的服務，提供合理的價錢，給您最滿意的服務。</p>
+
+        <h4>主要服務項目：</h4>
+        <ol class="m-l-24">
+            <li>社區、醫院、學校、公家機關、公司行號、商辦大樓…等一般清潔維護。</li>
+            <li>社區、醫院、學校、公家機關、公司行號、商辦大樓…等特殊清潔維護。</li>
+        </ol>
+
+        <h5 class="text-secondary">※免費現場估價、建議最佳方案。</h5>
+    </article>
+    <aside class="col-6 text-center">
+        <img src="~/Content/images/service/clean.jpg" alt="插圖">
+    </aside>
+</section>

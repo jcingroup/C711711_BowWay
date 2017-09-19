@@ -1,25 +1,18 @@
 ﻿
-<section class="work bg-muted">
-    <div class="wrap cell-row">
-        <a href="~/Home/Security" class="cell w1">
-            安全防護
-            <i class="oi" data-glyph="magnifying-glass"></i>
-        </a>
-        <a href="~/Home/Affair" class="cell w2">
-            事務管理
-            <i class="oi" data-glyph="magnifying-glass"></i>
-        </a>
-        <a href="~/Home/Equipment" class="cell w3">
-            設備維護
-            <i class="oi" data-glyph="magnifying-glass"></i>
-        </a>
-        <a href="~/Home/Clean" class="cell w4">
-            環保清潔
-            <i class="oi" data-glyph="magnifying-glass"></i>
-        </a>
-        <a href="~/Home/Park" class="cell w5">
-            停車管理
-            <i class="oi" data-glyph="magnifying-glass"></i>
-        </a>
-    </div>
-</section>
+<nav class="wrap service-nav">
+    <a href="~/Home/Security" class="@(ViewBag.SubNav == "Security" ? "active" : "")">
+        安全防護
+    </a>
+    <a href="~/Home/Affair" class="@(ViewBag.SubNav == "Affair" ? "active" : "")">
+        事務管理
+    </a>
+    <a href="~/Home/Equipment" class="@(ViewBag.SubNav == "Equipment" ? "active" : "")">
+        設備維護
+    </a>
+    <a href="~/Home/Clean" class="@(ViewBag.SubNav == "Clean" ? "active" : "")">
+        環保清潔
+    </a>
+    <a href="~/Home/Park" class="@(ViewBag.SubNav == "Park" ? "active" : "")">
+        停車管理
+    </a>
+</nav>

@@ -368,8 +368,8 @@ a, area, button, [role="button"], input, label, select, summary, textarea {
   top: 0;
   right: 0;
   left: 0;
-  padding-right: 16px;
-  padding-left: 16px; }
+  padding-right: 30px;
+  padding-left: 30px; }
 
 .logo {
   letter-spacing: 1px;
@@ -392,7 +392,7 @@ a, area, button, [role="button"], input, label, select, summary, textarea {
 
 #main {
   z-index: 1;
-  padding: 91px 16px 30px 236px; }
+  padding: 91px 30px 30px 250px; }
 
 #sidebar {
   position: fixed;
@@ -650,7 +650,7 @@ select,
     select.inline:not(:last-child), .form-inline
     .form-element:not(:last-child),
     .form-element.inline:not(:last-child) {
-      margin-right: 4.8px; }
+      margin-right: 9px; }
   input[type='email']::-ms-expand,
   input[type='number']::-ms-expand,
   input[type='password']::-ms-expand,
@@ -1671,7 +1671,7 @@ a.label-danger:hover, a.label-danger:focus, a.label-danger:active {
   border-bottom: 1px solid #dee2e3;
   height: 45px;
   line-height: 45px;
-  padding-left: 16px;
+  padding-left: 30px;
   position: fixed;
   top: 46px;
   right: 0;
