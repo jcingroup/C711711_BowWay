@@ -379,7 +379,7 @@ select,
     select.inline:not(:last-child), .form-inline
     .form-element:not(:last-child),
     .form-element.inline:not(:last-child) {
-      margin-right: 4.8px; }
+      margin-right: 9px; }
   input[type='email']::-ms-expand,
   input[type='number']::-ms-expand,
   input[type='password']::-ms-expand,

@@ -130,7 +130,7 @@
                     c_html = c_html + "        <input type=\"text\" name=\"img_desc[]\" id=\"img_name[]\" class=\"form-element\" value=\"" + obj.img_desc + "\">";
                     c_html = c_html + "    </td>";
                     c_html = c_html + "    <td>";
-                    
+
                     c_html = c_html + "       <label class=\"switch\">";
                     c_html = c_html + "           <input type=\"radio\" name=\"is_index\" id=\"is_index\" value=\"" + obj.img_id + "\"";
                     if(obj.is_index == "Y")
@@ -229,7 +229,7 @@
                         c_html = c_html + "        <input type=\"text\" name=\"img_desc[]\" id=\"img_name[]\" class=\"form-element\" value=\"" + obj.img_desc + "\">";
                         c_html = c_html + "    </td>";
                         c_html = c_html + "    <td>";
-                        
+
                         c_html = c_html + "       <label class=\"switch\">";
                         c_html = c_html + "           <input type=\"radio\" name=\"is_index\" id=\"is_index\" value=\"" + obj.img_id + "\"";
                         if(obj.is_index == "Y")
@@ -311,21 +311,21 @@
     <section class="row row-x-0 m-y-48">
         <div class="col-6">
             <dl class="fields">
-                <dt class="col-2">名稱</dt>
-                <dd class="col-10">
+                <dt class="col-3">名稱</dt>
+                <dd class="col-9">
                     <input type="text" name="act_name" id="act_name" value="@act_name" />
                 </dd>
             </dl>
             <dl class="fields">
-                <dt class="col-2">排序</dt>
-                <dd class="col-10">
+                <dt class="col-3">排序</dt>
+                <dd class="col-9">
                     <input type="number" value="@c_sort" class="inline" name="act_sort" id="act_sort">
                     <small>數字愈大愈前面</small>
                 </dd>
             </dl>
             <dl class="fields">
-                <dt class="col-2">前台顯示</dt>
-                <dd class="col-10">
+                <dt class="col-3">前台顯示</dt>
+                <dd class="col-9">
                     <label class="switch">
                         <input type="checkbox" name="show" id="show" @c_front_status >
                         <div class="slider round"></div>
@@ -335,8 +335,8 @@
         </div>
         <div class="col-6">
             <dl class="fields">
-                <dt class="col-2">圖片上傳</dt>
-                <dd class="col-10">
+                <dt class="col-3">圖片上傳</dt>
+                <dd class="col-9">
                     <input type="file" class="form-element" name="pic_B" id="pic_B" accept="image/*" />
                     <button type="button" class="btn info sm oi m-t-8" data-glyph="data-transfer-upload" name="btn_activity_pic" onclick="upload('');">
                         上傳

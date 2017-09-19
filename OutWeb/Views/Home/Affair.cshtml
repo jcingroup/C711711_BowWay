@@ -2,14 +2,43 @@
 @{
     ViewBag.Title = "事務管理";
     ViewBag.BodyClass = "Service";
+    ViewBag.SubNav = "Affair";
 }
 
 <header class="bg-pattern p-y-48">
     <h1 class="title">@ViewBag.Title</h1>
 </header>
 
-<section class="p-y-48 font-xl">
-    網頁製作中
-</section>
-
 @Html.Partial("service-nav")
+
+<section class="content">
+    <div class="wrap">
+        <article class="col-7">
+            <h3>寶程國際物業股份有限公司</h3>
+            <h4>日常管理事務中之經營理念：</h4>
+            <ul class="m-l-24">
+                <li>組織扁平化，提升管理應變效能。</li>
+                <li>晉升基礎貢獻制為先，防制組織僵化及官僚化。</li>
+                <li>人員甄選制度文件化，員工確實瞭解公司。</li>
+                <li>多元化的服務，提供客戶適用的管理規劃。</li>
+                <li>多重及複合的協助、輔導員工，派駐人員瞭解工作場所。</li>
+                <li>員工職前與在職訓練，讓員工瞭解真實案例之預防及有效處置作為。</li>
+                <li>確實遵守政府法令，客戶契約期間得到安全與保障。</li>
+                <li>全員適用勞動基準法，福利及社保納實，員工生活得到保障。</li>
+            </ul>
+            <p>為有效延續建築物設計之美、更要在其生命週期中永續經營其資產價值，寶程國際物業建立完善的管理機制，以客戶服務為導向，瞭解您的喜好、關心您的想法、洞悉您的思維，並以物業管理智慧平台提升服務品質，展現服務隨時隨處皆能擁有的堅持；秉持成為優質生活的經營者做為各項禮儀與服務之圭臬，透過專業的執行力與完善教育訓練，讓我們的服務能深層執行重點：完整、貼心的服務。</p>
+        </article>
+        <article class="col-5">
+            <h4>執行重點：完整、貼心的服務</h4>
+            <img class="float-r m-l-32" src="~/Content/images/service/affair.jpg" alt="插圖">
+            <ol class="m-l-32 m-t-24">
+                <li>行政文書管理作業</li>
+                <li>總務庶務管理作業</li>
+                <li>財務出納管理作業</li>
+                <li>年度計劃執行作業</li>
+                <li>物業工作報告與建議</li>
+                <li>工作執行督導與稽核</li>
+            </ol>
+        </article>
+    </div>
+</section>

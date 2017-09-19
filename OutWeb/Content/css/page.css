@@ -499,7 +499,7 @@ select,
     textarea.inline:not(:last-child),
     select.inline:not(:last-child),
     .form-element.inline:not(:last-child) {
-      margin-right: 4.8px; }
+      margin-right: 9px; }
   input[type='email']::-ms-expand,
   input[type='number']::-ms-expand,
   input[type='password']::-ms-expand,
@@ -888,7 +888,7 @@ a, area, button, [role="button"], input, label, select, summary, textarea {
   margin-right: 0.25rem;
   margin-left: 0.25rem; }
 
-.m-y-4 {
+.m-y-4, .content li {
   margin-top: 0.25rem;
   margin-bottom: 0.25rem; }
 
@@ -907,7 +907,7 @@ a, area, button, [role="button"], input, label, select, summary, textarea {
 .m-l-8 {
   margin-left: 0.5rem; }
 
-.m-x-8, .sub-nav a {
+.m-x-8, .sub-nav a, .service-nav a {
   margin-right: 0.5rem;
   margin-left: 0.5rem; }
 
@@ -987,7 +987,7 @@ a, area, button, [role="button"], input, label, select, summary, textarea {
 .m-a-32 {
   margin: 2rem; }
 
-.m-t-32 {
+.m-t-32, .service-nav {
   margin-top: 2rem; }
 
 .m-r-32 {
@@ -1118,7 +1118,7 @@ a, area, button, [role="button"], input, label, select, summary, textarea {
   padding-right: 0.25rem;
   padding-left: 0.25rem; }
 
-.p-y-4, .photo span {
+.p-y-4, .photo span, .service-nav a {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem; }
 
@@ -1183,7 +1183,7 @@ a, area, button, [role="button"], input, label, select, summary, textarea {
 .p-l-16 {
   padding-left: 1rem; }
 
-.p-x-16, .news-list a {
+.p-x-16, .news-list a, .service-nav a {
   padding-right: 1rem;
   padding-left: 1rem; }
 
@@ -1256,7 +1256,7 @@ a, area, button, [role="button"], input, label, select, summary, textarea {
   padding-right: 3rem;
   padding-left: 3rem; }
 
-.p-y-48 {
+.p-y-48, .content {
   padding-top: 3rem;
   padding-bottom: 3rem; }
 
@@ -1283,7 +1283,7 @@ a, area, button, [role="button"], input, label, select, summary, textarea {
   padding-top: 4rem;
   padding-bottom: 4rem; }
 
-.text-left, #footer {
+.text-left, #footer, .content {
   text-align: left; }
 
 .text-right, .fields dt {
@@ -1295,7 +1295,7 @@ a, area, button, [role="button"], input, label, select, summary, textarea {
 .font-sp {
   font-family: "Didact Gothic", sans-serif; }
 
-.text-white, .goTop, .goTop:hover, .goTop:active, .work a.cell:hover, .work a.cell:active, .news-list small {
+.text-white, .goTop, .goTop:hover, .goTop:active, .work a.cell:hover, .work a.cell:active, .news-list small, .service-nav a.active, .service-nav a.active:hover {
   color: #fff; }
 
 .bg-white {
@@ -1328,7 +1328,7 @@ a, area, button, [role="button"], input, label, select, summary, textarea {
 .text-info {
   color: #346078; }
 
-.bg-info, .btn.info {
+.bg-info, .btn.info, .service-nav a.active, .service-nav a.active:hover {
   background-color: #3C6E8A; }
 
 .text-warning {
@@ -1359,7 +1359,7 @@ a, area, button, [role="button"], input, label, select, summary, textarea {
   font-size: 18px;
   font-size: 1.125rem; }
 
-.font-xl, #footer .underline, .foot-contact strong, .sub-nav a {
+.font-xl, #footer .underline, .foot-contact strong, .sub-nav a, .service-nav a {
   font-size: 24px;
   font-size: 1.5rem; }
 
@@ -1613,3 +1613,15 @@ figure {
   .service-intro h2 {
     font-size: 72px;
     font-size: 4.5rem; }
+
+.service-nav a {
+  display: inline-block;
+  border: 1px solid #E0E4E9;
+  border-radius: 4px; }
+  .service-nav a:hover, .service-nav a:active {
+    background: #fcf5de; }
+
+.content p {
+  line-height: 1.65; }
+.content img {
+  max-width: 100%; }
