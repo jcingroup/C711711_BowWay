@@ -9,6 +9,7 @@
     string n_title = "";
     string n_date = "";
     string n_desc = "";
+    int ii = 0;
 }
 
 @section css {
@@ -50,7 +51,15 @@
                 @* 套程式 *@
                 @if (d_news.Rows.Count > 0)
                 {
-                    for (int i = 0; i < d_news.Rows.Count; i++)
+                    if(d_news.Rows.Count < 7)
+                    {
+                        ii = d_news.Rows.Count;
+                    }
+                    else
+                    {
+                        ii = 6;
+                    }
+                    for (int i = 0; i < ii; i++)
                     {
                         n_id = d_news.Rows[i]["n_id"].ToString();
                         n_title = d_news.Rows[i]["n_title"].ToString();

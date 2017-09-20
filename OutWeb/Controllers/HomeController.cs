@@ -34,7 +34,7 @@ namespace OutWeb.Controllers
 
 
             //抓取消息資料
-            d_news = DB.News_List("", "n_date desc", "Y", "", "", "", "Y");
+            d_news = DB.News_List("", "sort desc", "Y", "", "", "", "Y");
 
             //設定傳值
             ViewData["d_news"] = d_news;

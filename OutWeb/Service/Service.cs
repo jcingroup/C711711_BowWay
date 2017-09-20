@@ -57,12 +57,13 @@ namespace OutWeb.Service
                 //Mail Server 設定
                 System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient();
                 //登入帳號認證
-                smtp.Credentials = new System.Net.NetworkCredential("changmorden@gmail.com", "661116701107");
+                //smtp.Credentials = new System.Net.NetworkCredential("帳號", "密碼");
                 //使用587 Port - google要設定
-                smtp.Port = 587;
-                smtp.EnableSsl = true;   //啟動SSL 
+                //smtp.Port = 587;
+                //smtp.EnableSsl = true;   //啟動SSL 
                 //end of google設定
-                smtp.Host = "smtp.gmail.com";   //SMTP伺服器
+                //smtp.Host = "smtp.gmail.com";   //SMTP伺服器
+                smtp.Host = "msa.hinet.net";   //SMTP伺服器
                 //----------------------------------------------------------------------------//
                 smtp.Send(em);            //寄出
                 status = "Y";
