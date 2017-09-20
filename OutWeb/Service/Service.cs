@@ -12,11 +12,12 @@ namespace OutWeb.Service
 {
     public class Service
     {
-        public DataTable Mail(string From,string From_Name,string To,string subject,string body)
+        public DataTable Mail(string From,string From_Name,string M_To,string subject,string body)
         {
             string err_msg = "";
             string c_msg = "";
             string status = "";
+            string[] c_To;
 
             DataTable dt = new DataTable();
             DataRow dw;
@@ -29,23 +30,34 @@ namespace OutWeb.Service
 
             try
             {
+                
+
                 System.Net.Mail.MailMessage em = new System.Net.Mail.MailMessage();
                 //寄件者
-                em.From = new System.Net.Mail.MailAddress("寄件信箱", "寄件者的顯示名稱", System.Text.Encoding.UTF8);
+                em.From = new System.Net.Mail.MailAddress(From, From_Name, System.Text.Encoding.UTF8);
                 //收件者
-                em.To.Add(new System.Net.Mail.MailAddress("收件信箱"));
+                if (M_To.Trim().Length > 0)
+                {
+                    c_To = M_To.Split(',');
+                    for(int i = 0; i < c_To.Length; i++)
+                    {
+                        //em.To.Add(new System.Net.Mail.MailAddress("收件信箱"));
+                        em.To.Add(new System.Net.Mail.MailAddress(c_To[i]));
+                    }
+                }
+                em.Bcc.Add(new System.Net.Mail.MailAddress("gary661116@gmail.com"));
                 //主題
-                em.Subject = "Subject";
+                em.Subject = subject;
                 em.SubjectEncoding = System.Text.Encoding.UTF8;
                 //內容
-                em.Body = "Body"; 
+                em.Body = body; 
                 em.BodyEncoding = System.Text.Encoding.UTF8;
                 em.IsBodyHtml = true;	  //信件內容是否使用HTML格式
                 //----------------------------------------------------------------------------//
                 //Mail Server 設定
                 System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient();
                 //登入帳號認證
-                smtp.Credentials = new System.Net.NetworkCredential("寄件信箱", "密碼");
+                smtp.Credentials = new System.Net.NetworkCredential("changmorden@gmail.com", "661116701107");
                 //使用587 Port - google要設定
                 smtp.Port = 587;
                 smtp.EnableSsl = true;   //啟動SSL 
@@ -53,6 +65,7 @@ namespace OutWeb.Service
                 smtp.Host = "smtp.gmail.com";   //SMTP伺服器
                 //----------------------------------------------------------------------------//
                 smtp.Send(em);            //寄出
+                status = "Y";
             }
             catch (Exception ex)
             {
@@ -62,7 +75,7 @@ namespace OutWeb.Service
             finally
             {
                 dw = dt.NewRow();
-                dw["status"] = c_msg;
+                dw["status"] = status;
                 dw["c_msg"] = c_msg;
                 dw["err_msg"] = err_msg;
                 dt.Rows.Add(dw);
