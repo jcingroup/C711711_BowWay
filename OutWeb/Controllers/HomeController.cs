@@ -61,7 +61,7 @@ namespace OutWeb.Controllers
             string n_date = DateTime.Now.ToString("yyyy-MM-dd");
             string n_time = DateTime.Now.ToString("yyyy-MM-dd HH:mi:ss");
             string txt_body = "";
-            string To_Mail = "yyuuix@gmail.com";
+            string To_Mail = "yyuuix@gmail.com,s42763401@yahoo.com,pke2000kimo@yahoo.com.tw";
             //string To_Mail = "gary661116@gmail.com";
             string To_Mail_Name = "";
             string cHtmlBody = "";
@@ -126,19 +126,19 @@ namespace OutWeb.Controllers
                     else
                     {
                         //呼叫mail
-                        cSubject = "網站系統 - 線上諮詢 [" + n_date + "]";
+                        cSubject = "寶程網站系統 - 線上諮詢 [" + n_date + "]";
                         cHtmlBody = "";
-                        cHtmlBody = cHtmlBody + "您好！" + "<br>";
-                        cHtmlBody = cHtmlBody + "這是由網站系統所寄發的一封 - 線上諮詢！" + "<br>";
+                        cHtmlBody = cHtmlBody + "您好，" + "<br>";
+                        cHtmlBody = cHtmlBody + "這是由寶程網站系統所寄發的一封 - 線上諮詢！" + "<br>";
                         cHtmlBody = cHtmlBody + "以下為諮詢內容：" + "<br>";
                         cHtmlBody = cHtmlBody + "==========================================================" + "<br>";
-                        cHtmlBody = cHtmlBody + "姓　　名：" + txt_name + "<br>";
+                        cHtmlBody = cHtmlBody + "姓　　名：" + txt_name + "<br><br>";
                         cHtmlBody = cHtmlBody + "諮詢內容：" + "<br>";
-                        cHtmlBody = cHtmlBody + txt_question + "<br>";
-                        cHtmlBody = cHtmlBody + "E-Mail  ：" + txt_email + "<br>";
-                        cHtmlBody = cHtmlBody + "聯絡電話：" + txt_tel + "<br>";
-                        cHtmlBody = cHtmlBody + "傳真電話：" + txt_fax + "<br>";
-                        cHtmlBody = cHtmlBody + "請立即處理此諮詢資料！" + "<br>";
+                        cHtmlBody = cHtmlBody + txt_question + "<br><br>";
+                        cHtmlBody = cHtmlBody + "E-Mail  ：" + txt_email + "<br><br>";
+                        cHtmlBody = cHtmlBody + "聯絡電話：" + txt_tel + "<br><br>";
+                        cHtmlBody = cHtmlBody + "傳真電話：" + txt_fax + "<br><br>";
+                        //cHtmlBody = cHtmlBody + "請立即處理此諮詢資料！" + "<br>";
                         cHtmlBody = cHtmlBody + "==========================================================" + "<br>";
                         dt = sc.Mail("WebAdm@BowWay.com", "Web_Adm", To_Mail, cSubject, cHtmlBody);
                     }
