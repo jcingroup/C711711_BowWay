@@ -1532,6 +1532,8 @@ figure {
 .news-content header {
   border-top: 1px solid #E0E4E9;
   border-bottom: 1px solid #E0E4E9; }
+.news-content main img {
+  max-width: 100% !important; }
 
 .album {
   display: inline-block;
