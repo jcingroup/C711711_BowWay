@@ -586,6 +586,12 @@
     <Content Include="Content\images\index\icon-w4_hover.gif" />
     <Content Include="Content\images\index\icon-w5.gif" />
     <Content Include="Content\images\index\icon-w5_hover.gif" />
+    <Content Include="Content\images\index\logo-adorn.png" />
+    <Content Include="Content\images\index\logo-en1.png" />
+    <Content Include="Content\images\index\logo-en2.png" />
+    <Content Include="Content\images\index\logo-en3.png" />
+    <Content Include="Content\images\index\logo-en4.png" />
+    <Content Include="Content\images\index\logo-title.png" />
     <Content Include="Content\images\index\logo.png" />
     <Content Include="Content\images\index\menuBg.png" />
     <Content Include="Content\images\index\pic.jpg" />
