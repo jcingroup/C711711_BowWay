@@ -309,7 +309,7 @@ dd {
   #wrapper::before {
     background: #9D612B url("../images/header-line.gif") center 0 no-repeat;
     height: 3px; }
-    #wrapper::before, .underline::after, .work a.cell::before {
+    #wrapper::before, .underline::after, .work a.cell::before, #banner::after {
       content: '';
       display: block; }
   @media (max-width: 74.9375em) {
@@ -357,7 +357,7 @@ dd {
   width: 25%;
   height: 163px;
   float: left; }
-  .logo-s, .foot-club .icon-fb, .foot-club .icon-twitter, .foot-club .icon-line, .text-hide, .animate-logo h1, .title-en span {
+  .logo-s, .foot-club .icon-fb, .foot-club .icon-twitter, .foot-club .icon-line, .text-hide {
     font: 0/0 a;
     color: transparent;
     text-shadow: none;
@@ -530,7 +530,7 @@ a, area, button, [role="button"], input, label, select, summary, textarea {
   display: block;
   margin: auto; }
 
-.m-x-a, .logo-a {
+.m-x-a {
   margin-right: auto;
   margin-left: auto; }
 
@@ -635,7 +635,7 @@ a, area, button, [role="button"], input, label, select, summary, textarea {
 .m-r-12 {
   margin-right: 0.75rem; }
 
-.m-b-12, .animate-logo h1 {
+.m-b-12 {
   margin-bottom: 0.75rem; }
 
 .m-l-12, .foot-contact strong {
@@ -675,7 +675,7 @@ a, area, button, [role="button"], input, label, select, summary, textarea {
 .m-a-24 {
   margin: 1.5rem; }
 
-.m-t-24, .animate-logo h1 {
+.m-t-24 {
   margin-top: 1.5rem; }
 
 .m-r-24 {
@@ -1226,6 +1226,15 @@ h2 {
   background: #000;
   position: relative;
   height: 660px; }
+  #banner::after {
+    background: url(../images/index/logo-l.png) center no-repeat;
+    width: 428px;
+    height: 449px;
+    z-index: 3;
+    position: absolute;
+    top: 90px;
+    left: 50%;
+    margin-left: -214px; }
   #banner img {
     min-width: 100%;
     min-height: 100%;
@@ -1235,164 +1244,6 @@ h2 {
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%); }
 
-.animate-logo {
-  position: absolute;
-  top: 100px;
-  left: 50%;
-  width: 428px;
-  height: 449px;
-  margin-left: -214px;
-  z-index: 3; }
-  .animate-logo h1 {
-    background: url(../images/index/logo-title.png) 0 0 no-repeat;
-    width: 422px;
-    height: 68px;
-    opacity: 0;
-    -webkit-animation: slideUp 3s forwards;
-    animation: slideUp 3s forwards; }
-@-webkit-keyframes slideUp {
-  from {
-    opacity: 0; }
-  to {
-    opacity: 1; } }
-@keyframes slideUp {
-  from {
-    opacity: 0; }
-  to {
-    opacity: 1; } }
-.logo-a {
-  background: url(../images/index/logo.png) 0 0 no-repeat;
-  width: 255px;
-  height: 235px;
-  opacity: 0;
-  position: relative;
-  animation-delay: 1s;
-  -webkit-animation: slideUp 2.2s forwards;
-  animation: slideUp 2.2s forwards; }
-@-webkit-keyframes slideUp {
-  from {
-    top: -50px;
-    opacity: 0; }
-  to {
-    top: 0;
-    opacity: 1; } }
-@keyframes slideUp {
-  from {
-    top: -50px;
-    opacity: 0; }
-  to {
-    top: 0;
-    opacity: 1; } }
-.title-en span {
-  display: inline-block;
-  vertical-align: top;
-  height: 45px;
-  opacity: 0;
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  -webkit-animation: leftRight 2s forwards;
-  animation: leftRight 2s forwards; }
-@-webkit-keyframes leftRight {
-  40%, 60% {
-    -ms-transform: translate(0) scale(1);
-    -webkit-transform: translate(0) scale(1);
-    transform: translate(0) scale(1);
-    opacity: 1; }
-  80% {
-    -ms-transform: translate(-20px, 0) scale(2);
-    -webkit-transform: translate(-20px, 0) scale(2);
-    transform: translate(-20px, 0) scale(2);
-    opacity: 0; }
-  100% {
-    -ms-transform: translate(0) scale(1);
-    -webkit-transform: translate(0) scale(1);
-    transform: translate(0) scale(1);
-    opacity: 1; } }
-@keyframes leftRight {
-  40%, 60% {
-    -ms-transform: translate(0) scale(1);
-    -webkit-transform: translate(0) scale(1);
-    transform: translate(0) scale(1);
-    opacity: 1; }
-  80% {
-    -ms-transform: translate(-20px, 0) scale(2);
-    -webkit-transform: translate(-20px, 0) scale(2);
-    transform: translate(-20px, 0) scale(2);
-    opacity: 0; }
-  100% {
-    -ms-transform: translate(0) scale(1);
-    -webkit-transform: translate(0) scale(1);
-    transform: translate(0) scale(1);
-    opacity: 1; } }
-  .title-en span:nth-child(1) {
-    animation-delay: 0.08s;
-    background-image: url(../images/index/logo-en1.png);
-    width: 53px; }
-  .title-en span:nth-child(2) {
-    animation-delay: 0.16s;
-    background-image: url(../images/index/logo-en2.png);
-    width: 58px; }
-  .title-en span:nth-child(3) {
-    animation-delay: 0.24s;
-    background-image: url(../images/index/logo-en3.png);
-    width: 146px; }
-  .title-en span:nth-child(4) {
-    animation-delay: 0.32s;
-    background-image: url(../images/index/logo-en4.png);
-    width: 82px; }
-
-.lightbg {
-  width: 300px;
-  height: 300px;
-  position: absolute;
-  top: 6%;
-  left: 50%;
-  -ms-transform: scale(0.75);
-  -webkit-transform: scale(0.75);
-  transform: scale(0.75);
-  -webkit-filter: blur(50px);
-  -ms-filter: blur(50px);
-  filter: blur(50px);
-  background: #936015;
-  background: -webkit-linear-gradient(#936015, #F5D986);
-  background: linear-gradient(#936015, #F5D986);
-  -webkit-animation: animateGlow 10s ease infinite;
-  animation: animateGlow 10s ease infinite;
-  border-radius: 50%;
-  margin-left: -100px;
-  z-index: 3; }
-@-webkit-keyframes animateGlow {
-  0% {
-    -ms-transform: scale(1) rotate(-20deg);
-    -webkit-transform: scale(1) rotate(-20deg);
-    transform: scale(1) rotate(-20deg);
-    background-position: 0% 50%; }
-  50% {
-    -ms-transform: scale(0.4) rotate(180deg);
-    -webkit-transform: scale(0.4) rotate(180deg);
-    transform: scale(0.4) rotate(180deg);
-    background-position: 100% 50%; }
-  100% {
-    -ms-transform: scale(1) rotate(-20deg);
-    -webkit-transform: scale(1) rotate(-20deg);
-    transform: scale(1) rotate(-20deg);
-    background-position: 0% 50%; } }
-@keyframes animateGlow {
-  0% {
-    -ms-transform: scale(1) rotate(-20deg);
-    -webkit-transform: scale(1) rotate(-20deg);
-    transform: scale(1) rotate(-20deg);
-    background-position: 0% 50%; }
-  50% {
-    -ms-transform: scale(0.4) rotate(180deg);
-    -webkit-transform: scale(0.4) rotate(180deg);
-    transform: scale(0.4) rotate(180deg);
-    background-position: 100% 50%; }
-  100% {
-    -ms-transform: scale(1) rotate(-20deg);
-    -webkit-transform: scale(1) rotate(-20deg);
-    transform: scale(1) rotate(-20deg);
-    background-position: 0% 50%; } }
 .group {
   padding: 88px 0; }
 
