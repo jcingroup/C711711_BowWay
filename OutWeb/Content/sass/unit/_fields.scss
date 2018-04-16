@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+$fields-spacer:  $spacer/2 !default;
+
+// 表單欄位
+.fields {
+    @extend .m-b-0;
+
+    @include clearfix;
+
+    & + & { margin-top: $fields-spacer; }
+
+    // label
+    dt {
+        @extend .input-label, .text-right;
+        font-weight: normal;
+    }
+}

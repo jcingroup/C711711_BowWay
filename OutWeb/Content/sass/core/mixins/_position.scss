@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+// Positioning stuff
+@mixin position($position, $args) {
+    position: $position;
+
+    @each $o in top right bottom left {
+        $i: index($args, $o);
+        @if $i and $i + 1 <= length($args) and type-of(nth($args, $i + 1)) == number  {
+            #{$o}: nth($args, $i + 1);
+        }
+    }
+}
+
+// Absolutely positioning stuff
+@mixin absolute($args) {
+    @include position(absolute, $args);
+}
+@mixin fixed($args) {
+    @include position(fixed, $args);
+}
+@mixin sticky($args) {
+    position: -webkit-sticky;
+    @include position(sticky, $args);
+}
+
+// $horizontal = 水平
+// $vertical = 垂直
+@mixin pos-center($dir: all) {
+    @if $dir == all {
+        @include absolute(left 50% top 50%);
+        @include transform(translate(-50%,-50%));
+    }
+    @if $dir == horizontal or $dir == x {
+        @include absolute(left 50%);
+        @include transform(translateX(-50%));
+    }
+    @if $dir == vertical or $dir == y {
+        @include absolute(top 50%);
+        @include transform(translateY(-50%));
+    }
+}

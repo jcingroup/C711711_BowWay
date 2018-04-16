@@ -1,0 +1,186 @@
+@charset "UTF-8";
+
+/*      layout
+-----------------------------------------------------------------------*/
+// 置中(有最大寬度限制,非滿版才需要)
+.wrap {
+    @include clearfix;
+
+    max-width: $max-width;
+    margin: 0 auto;
+
+    @if $enable-RWD {
+        @include mq-max($max-width) {
+            @include rem('padding', 0 32px);
+        }
+        @include mq-max(phone) {
+            @include rem('padding',0 24px);
+        }
+    } @else {
+        min-width: $min-width;
+
+        // 小於 $max-width時
+        @include mq-max($max-width) {
+            @include rem('padding',0 24px);
+        }
+    }
+}
+
+#wrapper, #header, #footer {
+    @if not $enable-RWD { min-width: $min-width; }
+}
+
+#wrapper {
+    @if $wrapper-bg     { background: $wrapper-bg; }
+    @if $lte7 { _height: 100%; }
+    min-height: 100%;
+    padding-bottom: $footer-height + $wrapper-b-spacing; // 內容與footer間距
+
+    // 本次專案
+    @if $isIndex {
+        @include el(before) {
+            background: #9D612B url('#{$img-path}/header-line.gif') center 0 no-repeat;
+            height: 3px;
+        }
+        .scrolled & {
+            @include mq-max(break($mobile-menu-bk,-1)) {
+                padding-top: $header-mobile-height;
+            }
+        }
+    }
+}
+
+// header
+// ----------------------------------------------------------------------
+#header {
+    @if $header-bg     { background: $header-bg; }
+    @if $header-height { height: $header-height; }
+    z-index: z(header);
+
+    // 本次專案
+    @if $isIndex {
+
+        @include fixed(top 0 right 0 left 0);
+        @include transition(height .35s);
+
+        .scrolled & {
+            background: rgba(darken($brand-primary,10), .8);
+            height: $header-mobile-height;
+        }
+    }
+
+    @if $isPage {
+        position: relative;
+        @include el(before) {
+            background: #9D612B url('#{$img-path}/header-line.gif') center 0 no-repeat;
+            height: 3px;
+        }
+    }
+}
+
+.logo {
+    cursor: pointer; cursor: hand; // for ie
+    z-index: z(logo);
+
+    @if $logo-img {
+        @include text-pic($logo-img, nth($logo-size,1), nth($logo-size,2));
+    }
+
+    // 本次專案
+    @if $isIndex {
+        display: none;
+    }
+
+    @if $isPage {
+        float: left;
+        margin-top: 14px;
+    }
+}
+
+
+// footer 頁腳
+// ----------------------------------------------------------------------
+#footer {
+    @if $footer-bg { background: $footer-bg; }
+    @if $footer-color { color: $footer-color; }
+    min-height: $footer-height;
+    margin-top: -($footer-height);
+    z-index: z(footer);
+
+    // 本次專案
+    @extend .text-left;
+    position: relative;
+    padding-top: 35px;
+    padding-bottom: 80px;
+    border-top: 3px solid $muted;
+
+    .underline {
+        @extend .font-xl;
+
+        font-weight: normal;
+        letter-spacing: 2px;
+        padding-bottom: 6px;
+
+        &::after {
+            background: $brand-secondary;
+        }
+    }
+}
+
+.logo-s {
+    @include text-pic('logo-foot.gif', 25%, 163px);
+    float: left;
+    @extend .m-b-0;
+}
+
+.foot-contact {
+    @extend .m-b-0;
+    strong {
+        @extend .font-xl, .m-l-12;
+        letter-spacing: 1px;
+        font-weight: normal;
+    }
+    .inline-block {
+        vertical-align: top;
+    }
+}
+
+.foot-club {
+    a {
+        display: block;
+        float: left;
+        margin-right: 20px;
+    }
+
+    .icon-fb {
+        @include text-pic('icon-fb.gif', 39px, 39px);
+
+        &:hover, &:active {
+            background-image: url(#{$img-path}/icon-fb2.gif);
+        }
+    }
+    .icon-twitter {
+        @include text-pic('icon-twitter.gif', 39px, 39px);
+
+        &:hover, &:active {
+            background-image: url(#{$img-path}/icon-twitter2.gif);
+        }
+    }
+    .icon-line {
+        @include text-pic('icon-line.gif', 40px, 39px);
+
+        &:hover, &:active {
+            background-image: url(#{$img-path}/icon-line2.gif);
+        }
+    }
+}
+
+.copyright {
+    background: darken($brand-primary,8);
+    color: desaturate(lighten($brand-primary,34),30);
+    line-height: 45px;
+    letter-spacing: 1px;
+    width: 100%;
+    @include rem('font-size', 12px);
+    @include absolute(bottom 0);
+}

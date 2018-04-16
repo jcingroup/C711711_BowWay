@@ -1,0 +1,147 @@
+﻿@charset "UTF-8";
+
+// == config
+// ----------------------------------------------------------------------
+$enable-RWD:              false !default; // 無RWD
+$isIndex:                 false !default; // 前台首頁用
+$isPage:                  false !default; // 前台內頁用
+$img-path:                '../images' !default;
+$font-path:               '../font' !default;
+
+// == color
+// ----------------------------------------------------------------------
+// 語義色
+// http://www.w3schools.com/w3css/w3css_colors.asp
+// 黑白
+$light-gray:              #F1F1F1 !default;
+$gray:                    #9E9E9E !default;
+$dark-gray:               #616161 !default;
+
+$pale-red:                #FFE7E7 !default;
+$pale-yellow:             #fffFD7 !default;
+$pale-green:              #E7FFE7 !default;
+$pale-blue:               #B7CAD4 !default; // E7FFFF
+
+// 抽象色
+$brand-primary:           #1B2E40;    // 主色
+$brand-secondary:         #B08434;    // 輔色
+$muted:                   #E0E4E9;    // 灰色
+$success:                 #88C200;    // 綠
+$info:                    #3C6E8A;    // 藍
+$warning:                 #F5D77F;    // 黃
+$danger:                  #E96520;    // 紅 #CD000D
+
+// 情境狀態 + 配色
+$state-type: (
+    primary:              $brand-primary,
+    secondary:            $brand-secondary,
+    muted:                $muted,
+    success:              $success,
+    info:                 $info,
+    warning:              $warning,
+    danger:               $danger
+);
+
+// == unit/ overwriting
+// ----------------------------------------------------------------------
+
+// link
+$link-color:                 $info !default;              // 連結文字色
+$link-hover-color:           $brand-secondary !default;            // 移過後顏色
+
+// btn
+$btn-border-radius:          false !default;
+$btn-bg:                     $brand-primary !default;
+$btn-hover-bg:               $brand-secondary !default;
+
+$fields-spacer:              24px;
+
+
+// == layout
+// ----------------------------------------------------------------------
+$min-width:             1200px;     // 網頁最小尺寸 1008
+$max-width:             1400px;     // 網頁最寬尺寸: .wrap
+
+$wrapper-bg:            false !default;
+$wrapper-b-spacing:     0 !default;
+
+// header
+$header-height:         124px !default;
+$header-bg:             #1c3a4a url(#{$img-path}/headerBg.jpg) center 0 no-repeat !default;
+$header-mobile-height:  auto; // 本次專案
+
+// logo
+$logo-img:              'logo.png' !default; // 'logo.gif' or false
+$logo-size:             330px 92px !default;
+
+// footer
+$footer-height:         281px !default;
+$footer-bg:             $brand-primary !default;
+$footer-color:          #f2f2f2;
+
+// z-index
+$z-index: (
+    header:             6,
+    main:               1,
+    footer:             2,
+    logo:               10,
+    menu:               20,
+    figure:             1,
+    goTop:              99,
+    overlay:            999
+);
+
+
+// == nav
+// ----------------------------------------------------------------------
+$sub-nav-has:           false !default;    // 子選單
+$nav-root:              if($sub-nav-has, 'li > a', 'a') !default;
+
+// 行動版
+$mobile-menu-bk:        'wide' !default;     // 從()螢幕寬度以下開始出現行動版選單
+$mobile-menu-bg:        #fff !default;        // rgba(#fff,.95)
+$mobile-menu-width:     250px !default;
+$mobile-transition:     'left .3s' !default; // push - left .35s; overlay - opacity 1s
+
+
+// == table
+// ----------------------------------------------------------------------
+// table, 共用樣式
+$table-border-color:        #EDEBE8 !default;
+$table-pd:                  5px 8px !default;
+
+// 滑鼠移過變色
+$table-bg-hover:            #fffFD7 !default;
+
+// 斑馬紋條列式表格
+$table-bg-striped:          #F9F9F9 !default;
+$table-bg-active:           false !default;
+$table-striped-list:        'even' !default;
+
+// RWD時，表格出現卷軸
+$table-rwd:                 true !default;
+
+
+// == form
+// ----------------------------------------------------------------------
+$input-font-size:           15px !default;
+$input-height:              $input-font-size * 1.8 !default;
+$input-bg:                  #fff !default;
+$input-border-color:        darken($muted, 8) !default; //$muted
+$input-focus-color:         lighten($brand-secondary, 12) !default;
+$input-shadow:              inset 0 1px 1px rgba(0,0,0,.075) !default;
+$input-transition:          border-color ease-in-out .15s, box-shadow ease-in-out .15s !default;
+$input-radius:              false !default;
+$input-placeholder-color:   darken($muted, 8) !default;
+
+// checkbox style
+$choice-box-color:          $input-focus-color !default;
+$checkbox-height:           $input-height - 5 !default; // 同input算法
+$checkbox-size:             if($input-height, $input-height, $checkbox-height) !default;
+$checkbox-icon-size:        $checkbox-size*.7 !default;
+$checkbox-radius:           $input-radius !default;
+
+
+// == classes
+// ----------------------------------------------------------------------
+$font-family-sp:             'Didact Gothic', sans-serif;

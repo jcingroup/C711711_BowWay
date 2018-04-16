@@ -1,0 +1,91 @@
+@charset "UTF-8";
+
+// == config
+// ----------------------------------------------------------------------
+$lte7:                    false !default;
+$enable-RWD:              true !default;
+$states:                  true !default;  // 情境文字是否輸出
+
+// == base
+// ------------------------------------------------------------
+$body-bg:                    #fff !default;
+$body-color:                 #333 !default;
+
+$font-family-base:           \5FAE\8EDF\6B63\9ED1\9AD4,"微軟正黑體","Microsoft JhengHei",'Helvetica Neue',Helvetica,Arial,sans-serif !default;
+$font-size-base:             16px !default;     // 1rem
+$line-height:                1.5 !default;
+
+$spacer:                     1rem !default;  // 間距
+
+$cursor-disabled:            not-allowed; // 表單元素(停用)上的滑鼠樣式
+$border-radius:              $font-size-base/4 !default;
+$prefixes:                   webkit !default;
+
+
+// == grid
+// ------------------------------------------------------------
+$enable-flex:                false !default;           // 是否使用 flex 版
+$grid-columns:               12 !default;    // for grid: 網格格數
+$gutter:                     30px !default;  // for grid: 左右留白
+$spacing: (
+    0: (
+        x: 0,
+        y: 0
+    ),
+    2: (
+        x: ($spacer / 8),
+        y: ($spacer / 8)
+    ),
+    4: (
+        x: ($spacer / 4),
+        y: ($spacer / 4)
+    ),
+    8: (
+        x: ($spacer / 2),
+        y: ($spacer / 2)
+    ),
+    12: (
+        x: ($spacer * 0.75),
+        y: ($spacer * 0.75)
+    ),
+    16: (
+        x: $spacer,
+        y: $spacer
+    ),
+    24: (
+        x: ($spacer * 1.5),
+        y: ($spacer * 1.5)
+    ),
+    32: (
+        x: ($spacer * 2),
+        y: ($spacer * 2)
+    ),
+    48: (
+        x: ($spacer * 3),
+        y: ($spacer * 3)
+    ),
+    64: (
+        x: ($spacer * 4),
+        y: ($spacer * 4)
+    )
+) !default;
+
+// == RWD-break
+// ----------------------------------------------------------------------
+$mq-breakpoints: (
+    mobile:           375px,  // 380px,
+    phone:            568px,  // 480px,
+    phone-plus:       667px,  // 640px,
+    tablet:           768px,  // 768px,
+    desktop:          1024px, // 980px,
+    wide:             1200px,
+    wider:            1400px
+) !default;
+
+$grid-breakpoints: (
+    xs: phone,
+    sm: tablet,
+    md: desktop,
+    lg: wide,
+    xl: wider
+) !default;

@@ -1,0 +1,229 @@
+@charset "UTF-8";
+
+// 本頁專用變數(覆蓋)
+// ------------------------------------------------------------
+$isPage:                 true;
+
+$headings-line-height:   1.2;
+$btn-lg:                 24px;
+
+// import
+// ------------------------------------------------------------
+// 本次專案專用變數
+@import "_client/settings";
+
+// 共用
+@import "core/variables";
+@import "core/function";
+@import "core/mixins";
+
+// 由此 output css
+@import "vendor/normalize";  // 重置樣式
+@import "vendor/print";      // 列印樣式
+
+@import "unit/base";
+@import "unit/link";
+@import "unit/typography";
+@import "unit/list";
+
+// // 本頁專用
+@import "_client/layout";
+@import "_client/form";
+@import "_client/nav";
+
+@import "unit/btn";
+@import "unit/fields";
+
+// 本專案自定後端樣式
+@import "_client/classes"; // 建議放置在最後一個
+
+
+// main
+// ------------------------------------------------------------
+// 子選單
+.sub-nav {
+    margin-top: 42px;
+
+    a {
+        @extend .m-x-8, .font-xl;
+
+        background:
+            url(#{$img-path}/border-1.gif) 0 0 no-repeat,
+            url(#{$img-path}/border-2.gif) right 0 no-repeat,
+            url(#{$img-path}/border-3.gif) 0 bottom no-repeat,
+            rgba(#fff,.8) url(#{$img-path}/border-4.gif) right bottom no-repeat;
+
+        line-height: 1.35;
+        display: inline-block;
+        vertical-align: middle;
+        color: #1a1a1a;
+        padding: 20px 62px;
+
+        &:hover, &:active, &.current {
+            color: #fff;
+            background-color: rgba($brand-secondary, .65);
+        }
+    }
+}
+
+// 相關資訊
+.news-list {
+    @extend %list-unstyled;
+
+    li {
+        @extend .m-y-16;
+        border: 1px solid $muted;
+    }
+    small {
+        @extend .text-white, .text-center;
+        width: 120px;
+        background: lighten($brand-secondary, 12);
+    }
+    a {
+        @extend .p-y-12, .p-x-16, .font-lg;
+
+        &:hover, &:active {
+            background: lighten($muted, 8);
+        }
+    }
+}
+.news-content {
+    @extend .m-b-48;
+
+    header {
+        @extend .p-y-8, .m-y-12;
+        border-top: 1px solid $muted;
+        border-bottom: 1px solid $muted;
+    }
+    .date {
+        @extend .text-secondary;
+    }
+    main {
+        img {
+            max-width: 100% !important;
+        }
+    }
+}
+
+// 活動剪影
+.album {
+    display: inline-block;
+    vertical-align: top;
+    width: 30%;
+    height: 250px;
+    margin: 24px 1.5%;
+
+    img {
+        @include transition(.5s);
+        @include pos-center;
+        @include prefix(transform-origin, center);
+        max-width: 100%;
+        min-height: 100%;
+    }
+
+    h4, i { @include absolute(left 0 right 0); }
+
+    h4 {
+        @include transition(.35s);
+        @include text-overflow;
+        @extend .p-y-12;
+        background: rgba($muted, .95);
+        margin: 0;
+        bottom: 0;
+    }
+
+    i {
+        @include transition(.6s);
+        @extend .font-xxxl;
+        color: rgba($muted,.65);
+        opacity: 0;
+        top: 100px;
+    }
+
+    &:hover {
+        @extend .bg-primary;
+
+        img {
+            @include transform(scale(1.2) translate(-50%, -50%));
+            @include prefix(filter, saturate(1.2));
+            opacity: .45;
+        }
+        h4 {
+            @include transform(translateY(-170px));
+            background: none;
+            color: #fff;
+        }
+        i {
+            opacity: 1;
+        }
+    }
+}
+
+.photo {
+    @extend .p-a-4, .m-y-24, .m-x-12;
+    display: inline-block;
+    vertical-align: top;
+    border: 1px solid $muted;
+
+    @include transition(box-shadow .5s);
+
+    img {
+        height: 200px;
+    }
+
+    span {
+        @extend .p-y-4;
+        @include text-overflow(300px);
+        display: block;
+        color: darken($muted, 45);
+    }
+
+    &:hover, &:active {
+        box-shadow: 0 0 20px rgba(#000, .2);
+
+        span {
+            color: $brand-secondary;
+        }
+    }
+}
+
+// 服務項目
+.service-intro {
+    background: #fff url(#{$img-path}/service/pic.jpg) 0 center no-repeat;
+
+    article {
+        padding-left: 82px;
+    }
+    h2 { @include rem('font-size', 72px); }
+    p {
+        @extend .font-lg, .m-t-24;
+    }
+}
+.service-nav {
+    @extend .m-t-32;
+    a {
+        @extend .p-y-4, .p-x-16, .font-xl, .m-x-8;
+
+        display: inline-block;
+        border: 1px solid $muted;
+        border-radius: 4px;
+
+        &:hover, &:active {
+            background: lighten($warning, 20);
+        }
+        &.active, &.active:hover {
+            @extend .bg-info, .text-white;
+        }
+    }
+}
+
+// == all content
+.content {
+    @extend .p-y-48, .text-left;
+
+    p { line-height: 1.65; }
+
+    li { @extend .m-y-4; }
+
+    img { max-width: 100%; }
+}

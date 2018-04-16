@@ -1,0 +1,93 @@
+﻿@charset "UTF-8";
+
+// == config
+// ----------------------------------------------------------------------
+$enable-RWD:              false !default;
+$isLogin:                 false !default; // 後台登入頁用
+$isAdmin:                 false !default; // 後台系統用
+$img-path:                '../images' !default;
+$font-path:               '../font' !default;
+
+// == color
+// ----------------------------------------------------------------------
+// 語義色
+// http://www.w3schools.com/w3css/w3css_colors.asp
+$light-gray:              #F1F1F1 !default;
+$gray:                    #9E9E9E !default;
+$dark-gray:               #616161 !default;
+
+$pale-red:                #FFE7E7 !default;
+$pale-yellow:             #fffFD7 !default;
+$pale-green:              #E7FFE7 !default;
+$pale-blue:               #E7FFFF !default;
+
+$brand-primary:           #438EB9 !default;      // 主色
+$muted:                   #9E9E9E !default;      // 灰色
+$success:                 #5CB85C !default;      // 綠
+$info:                    #5BC0DE !default;      // 藍
+$warning:                 #F0AD4E !default;      // 黃
+$danger:                  #C4272D !default;      // 紅
+
+// 情境狀態 + 配色
+$state-type: (
+    primary:              $brand-primary,
+    muted:                $muted,
+    success:              $success,
+    info:                 $info,
+    warning:              $warning,
+    danger:               $danger
+) !default;
+
+// == overwriting
+// ----------------------------------------------------------------------
+$font-family-sp:          'Open Sans', sans-serif;
+
+// btn
+$btn-font-size:           15px !default;
+
+// label
+$label-color:             #fff;
+$label-bg:                lighten(#607D8B,16);
+
+// input-choiceBox
+$choice-box-color:        $warning;
+$checkbox-size:           21px;
+
+// == layout
+// ----------------------------------------------------------------------
+$min-width:             1008px;     // 網頁最小尺寸
+$max-width:             1400px;     // 網頁最寬尺寸: .wrap
+
+// wrapper
+$wrapper-bg:            false !default;
+$wrapper-b-spacing:     30px !default;
+$container-x-spacing:   24px !default;
+$footBeBottom:          true !default; // 頁腳是否置底 true / false
+
+// header
+$header-height:         46px !default;
+$header-bg:             $brand-primary !default;
+
+// footer
+$footer-height:         70px !default;
+$footer-bg:             false !default;
+$footer-color:          false !default; //#63889D;
+
+// sidebar
+$sidebar-width:         220px;
+$sidebar-title-height:  45px;
+
+// z-index
+$z-index: (
+    header:             2,
+    main:               1,
+    footer:             5,
+    sidebar:            4,
+    banner:             3,
+    logo:               10,
+    menu:               20,
+    figure:             3,
+    modal:              23,
+    goTop:              99,
+    overlay:            999
+);

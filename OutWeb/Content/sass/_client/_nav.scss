@@ -1,0 +1,140 @@
+@charset "UTF-8";
+
+// == 主選單
+// ------------------------------------------------------------
+
+// body
+.js-mobile-body {
+    overflow-y: hidden;
+}
+
+#menu {
+    z-index: z(menu);
+
+    // 本次專案
+    @if $isIndex {
+        margin-top: 20px;
+
+        .scrolled & {
+            margin-top: 0;
+        }
+    }
+
+    @if $isPage {
+        margin-top: 50px;
+        float: right;
+    }
+
+
+    #{$nav-root} {
+        display: inline-block;
+        color: #fff;
+        letter-spacing: 1px;
+        padding: 0 24px;
+        position: relative;
+
+        @include rem('font-size', 17px);
+
+        @if $isPage {
+            @include el(after) {
+                @include arrow(up, 50px, 20px, #FDFDFD);
+                @include pos-center(x);
+                @include transition(.35s);
+                bottom: -60px;
+                opacity: 0;
+            }
+        }
+
+        &:hover, &:active, &.current {
+            color: #F5D77F;
+
+            @if $isPage {
+                &::after {
+                    bottom: -46px;
+                    opacity: 1;
+                }
+            }
+        }
+
+        @if $isIndex {
+            padding: 0 25px;
+
+            .scrolled & {
+                padding: 12px 25px;
+            }
+        }
+    }
+
+    @if $sub-nav-has {
+        @extend %list-inline, .m-b-0;
+        li {
+            // 子選單顯示
+            &:active {
+                .sub-nav {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+        // 子選單樣式
+        .sub-nav {
+            display: block;
+            opacity: 0;
+            visibility: hidden;
+
+            // 本次專案
+            display: none;
+            @include transition(opacity .5s, top .35s);
+            @include absolute(top 100% left 0 right 0);
+
+            max-width: $max-width;
+            margin: auto;
+        }
+    }
+
+    // 行動版面
+    // @include mq-max(break($mobile-menu-bk,-1)) {
+    //     z-index: z(overlay);
+
+    //     @include fixed(bottom 0 top $header-height);
+    //     @if $mobile-menu-bg    { background: $mobile-menu-bg; }
+    //     @if $mobile-transition { @include transition($mobile-transition); }
+    //     overflow-y: auto;
+    //     width: $mobile-menu-width;
+    //     left: -$mobile-menu-width;
+    //     text-align: left;
+
+    //     .js-mobile-body & {
+    //         left: 0;
+    //     }
+    //     .scrolled & {
+    //         top: $header-mobile-height;
+    //     }
+    // }
+}
+
+// == mobile-toggle
+// .mobile-toggle {
+//     display: none;
+//     background: none;
+//     position: relative;
+//     z-index: z(overlay) + 1;
+//     @include transition(.3s);
+
+//     // 本次專案
+//     @extend .float-l;
+//     background: url(#{$img-path}/mobile-toggle.gif) center no-repeat;
+//     width: 45px;
+//     height: 37px;
+//     @include transform(translateY(45%));
+
+//     &:hover { opacity: .8; }
+//     &:active, &.active {
+//         background-image: url(#{$img-path}/mobile-close.gif);
+//     }
+
+//     @include mq-max(break($mobile-menu-bk,-1)) {
+//         display: block;
+//     }
+// }
+

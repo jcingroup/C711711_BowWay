@@ -1,0 +1,98 @@
+@charset "UTF-8";
+
+// 下為基本樣式(屬性固定)
+$btn-font-size:          18px !default;
+$btn-line-height:        1.2 !default;
+$btn-display:            inline-block !default;
+$btn-pd:                 ($btn-font-size*$btn-line-height)*0.3 ($btn-font-size*$btn-line-height)*0.5 !default; // $spacer*0.8 $spacer*2 $spacer*.8 $spacer*2.6
+$btn-border-radius:      $btn-font-size/6 !default;
+$btn-state-color:        #fff !default;
+$btn-disabled-bg:        $muted !default;
+$btn-bg:                 lighten(desaturate($brand-primary,14),10) !default;
+$btn-color:              $btn-state-color !default;
+$btn-hover-bg:           darken($btn-bg, 6) !default;
+$btn-hover-color:        $btn-state-color !default;
+$btn-effect:             'background .35s, color .5s' !default;
+$btn-sm:                 14px !default;
+$btn-lg:                 20px !default;
+
+// 下為可自定屬性及樣式
+$btn-styles: (
+    letter-spacing:      1px,
+) !default;
+$btn-hover-styles: () !default;
+
+
+// button
+// ----------------------------------------------
+button, [role="button"] {
+    cursor: pointer;
+    border: none;
+    &:active, &:focus { outline: 0; }
+}
+a, area, button, [role="button"], input, label, select, summary, textarea {touch-action: manipulation;}
+
+.btn {
+    // 下為預設樣式
+    @if $btn-display       { display: $btn-display; }
+    @if $btn-pd            { padding: $btn-pd; }
+    @if $btn-border-radius { border-radius: $btn-border-radius; }
+    @if $btn-font-size     { font-size: $btn-font-size; }
+    @if $btn-line-height   { line-height: $btn-line-height; }
+    @if $btn-bg            { background: $btn-bg; }
+    @if $btn-color         { color: $btn-color; }
+    @if $btn-effect        { @include transition($btn-effect); }
+
+    // 下為追加樣式-自定屬性與樣式
+    @each $attribute, $value in $btn-styles {
+        #{$attribute}: #{$value};
+    }
+
+    &:hover, &:active, &:focus {
+        @if $btn-hover-bg     { background: $btn-hover-bg }
+        @if $btn-hover-color  { color: $btn-hover-color }
+        @each $attribute, $value in $btn-hover-styles {
+            #{$attribute}: #{$value};
+        }
+    }
+    &.disabled, &[disabled], fieldset[disabled] & {
+        cursor: $cursor-disabled;
+        opacity: .65;
+        @if $btn-disabled-bg { background-color: $btn-disabled-bg; }
+    }
+
+    // 各尺寸按鈕
+    &.sm {
+        font-size: $btn-sm;
+        padding: ($btn-sm * $btn-line-height * 0.4) ($btn-sm * 0.8);
+    }
+    &.lg {
+        font-size: $btn-lg;
+        padding: ($btn-lg * $btn-line-height * 0.6) ($btn-lg * 3);
+    }
+
+    @if $states {
+        @each $type, $color in $state-type {
+            &.#{$type} {
+                @extend .bg-#{$type};
+                &:hover, &:active { background: lighten($color,8); }
+            }
+        }
+    }
+}
+
+.btn-link {
+    @if $btn-display       { display: inline; }
+    @if $btn-line-height   { line-height: $line-height; }
+    @if $btn-bg            { background: none; }
+    @if $btn-color         { color: $link-color; }
+    @if $btn-effect        { @include transition($link-transition); }
+    &:hover, &:active, &:focus {
+        @if $btn-hover-bg     { background: none; }
+        @if $btn-hover-color  { color: $link-hover-color }
+    }
+    &.disabled, &[disabled], fieldset[disabled] & {
+        opacity: 1;
+        @if $btn-disabled-bg { color: $btn-disabled-bg; background: none; }
+    }
+}

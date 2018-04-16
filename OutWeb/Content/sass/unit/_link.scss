@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+// == link
+// ------------------------------------------------------------
+$link-color:                 $brand-primary !default;                      // 連結文字色
+$link-decoration:            none !default;                                // 連結底線樣式
+$link-hover-color:           lighten($brand-primary, 15) !default;         // 移過後顏色
+$link-hover-decoration:      false !default;                               // 移過後底線樣式
+$link-transition:            color .35s, background .3s !default;          // 滑鼠移過動態特效
+
+a {
+    @if $link-color      { color: $link-color;}
+    @if $link-decoration { text-decoration: $link-decoration; }
+    @if $link-transition { @include transition($link-transition); }
+
+    &:hover, &:active {
+        color: $link-hover-color;
+        outline-width: 0;
+
+        @if $link-hover-decoration {
+            text-decoration: $link-hover-decoration;
+        }
+    }
+}

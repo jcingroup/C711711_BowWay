@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+// == typography
+// ------------------------------------------------------------
+$font-size-h1:               $font-size-base * 2.625 !default;   // 42px old-2.5
+$font-size-h2:               $font-size-base * 2.0625 !default;  // 33px old-2
+$font-size-h3:               $font-size-base * 1.75 !default;    // 28px old-1.75
+$font-size-h4:               $font-size-base * 1.5625 !default;  // 25px old-1.5
+$font-size-h5:               $font-size-base * 1.3125 !default;  // 21px old-1.25
+$font-size-h6:               $font-size-base * 1.0625 !default;  // 17px old-1
+
+$headings-color:             false !default;
+$headings-font-family:       false !default;
+$headings-font-weight:       500 !default;
+$headings-line-height:       1.1 !default;
+$headings-letter-spacing:    false !default;
+$headings-margin-bottom:     $spacer !default;
+
+$p-spacer:                   $spacer*0.375 !default;
+$abbr-border-color:          $muted !default;
+$hr-border:                  1px solid $muted !default;
+
+
+// Headings
+// -----------------------------------------------
+h1 { margin-top: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+    @if $headings-margin-bottom   { margin-bottom: $headings-margin-bottom; }
+    @if $headings-font-family     { font-family: $headings-font-family; }
+    @if $headings-font-weight     { font-weight: $headings-font-weight; }
+    @if $headings-line-height     { line-height: $headings-line-height; }
+    @if $headings-color           { color: $headings-color; }
+    @if $headings-letter-spacing  { letter-spacing: $headings-letter-spacing; }
+}
+
+@for $i from 1 through 6 {
+    $headings: $font-size-h1 $font-size-h2 $font-size-h3 $font-size-h4 $font-size-h5 $font-size-h6;
+
+    h#{$i} {
+        @include rem('font-size',nth($headings, $i))
+    }
+}
+
+
+// Body text
+// -----------------------------------------------
+b, strong {
+    font-weight: bold;
+}
+
+small {
+    font-size: 80%;
+    font-weight: normal;
+}
+
+// 螢光筆註記
+mark {
+    background-color: lighten($warning, 30%);
+    padding: .2em;
+}
+
+hr {
+    margin: $spacer*2 0;
+    border: 0;
+    border-top: $hr-border;
+}
+
+p {
+    margin: 0;
+
+    & + & {
+        margin-top: $spacer*.7;
+    }
+}
+
+abbr[title],
+// Add data-* attribute to help out our tooltip plugin, per https://github.com/twbs/bootstrap/issues/5257
+abbr[data-original-title] {
+    cursor: help;
+    border-bottom: 1px dotted $abbr-border-color;
+}

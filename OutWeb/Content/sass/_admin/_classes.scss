@@ -1,0 +1,105 @@
+@charset "UTF-8";
+
+// common - @extend in core/util
+// ------------------------------------------------------------
+// 常用樣式
+.clearfix      { @include clearfix; }
+.full          { @include full; }
+.text-hide     { @include text-hide; }
+.sr-only       { @include sr-only; }
+
+// 偶爾用到
+.float-l       { float: left; }
+.float-r       { float: right; }
+.block         { display: block; }
+.inline-block  { display: inline-block; }
+.inline        { display: inline; }
+.clear         { clear: both; }
+.hidden        { display: none; }
+.circle        { border-radius: 50%; } // 圓形
+.img-center    { display: block; margin: auto; }
+
+.m-x-a {
+    margin-right: auto;
+    margin-left:  auto;
+}
+
+// spacing (ref: core/_variables.scss)
+// ex. m-a-sm, p-y-12
+@each $prop, $abbrev in (margin: m, padding: p) {
+    @each $size, $lengths in $spacing {
+        $length-x:   map-get($lengths, x);
+        $length-y:   map-get($lengths, y);
+
+        .#{$abbrev}-a-#{$size} { #{$prop}:        if($length-y == $length-x, $length-y, $length-y $length-x); } // a = All sides
+        .#{$abbrev}-t-#{$size} { #{$prop}-top:    $length-y; }
+        .#{$abbrev}-r-#{$size} { #{$prop}-right:  $length-x; }
+        .#{$abbrev}-b-#{$size} { #{$prop}-bottom: $length-y; }
+        .#{$abbrev}-l-#{$size} { #{$prop}-left:   $length-x; }
+
+        // Axes
+        .#{$abbrev}-x-#{$size} {
+            #{$prop}-right:  $length-x;
+            #{$prop}-left:   $length-x;
+        }
+        .#{$abbrev}-y-#{$size} {
+            #{$prop}-top:    $length-y;
+            #{$prop}-bottom: $length-y;
+        }
+    }
+}
+
+
+// text
+// ------------------------------------------------------------
+.text-left   { text-align: left; }
+.text-right  { text-align: right; }
+.text-center { text-align: center; }
+
+@if $font-family-sp {
+    .font-sp     { font-family: $font-family-sp; }
+}
+
+
+// 情境
+// ------------------------------------------------------------
+.text-white { color: #fff; }
+.bg-white   { background: #fff; }
+
+// ref: core/variables.scss $states: true
+@if $states {
+    @each $type, $color in $state-type {
+        .text-#{$type} { color: darken($color,5); }
+        .bg-#{$type}   { background: $color; }
+    }
+}
+
+
+// 常用套件，但樣式常常改
+// ------------------------------------------------------------
+.font-tiny   { @include rem('font-size',12); }  // 13px
+.font-sm     { @include rem('font-size',13); }  // 14px
+.font-md     { @include rem('font-size',15); }
+.font-lg     { @include rem('font-size',20); }  // 20px
+.font-xl     { @include rem('font-size',24); }
+.font-xxl    { @include rem('font-size',32); }
+.font-xxxl   { @include rem('font-size',48); }
+.font-jumbo  { @include rem('font-size',64); }
+
+.w-sm { width: 80px !important; }
+.w-md { width: 150px !important; }
+.w-lg { width: 320px !important; }
+.w-xl { width: 480px !important; }
+
+.underline {
+    border-bottom: 1px solid lighten($brand-primary,30);
+}
+
+.title {
+    @extend .m-b-24, .font-lg, .text-primary, .underline;
+    line-height: 2;
+
+    small {
+        @extend .m-l-8, .text-muted;
+    }
+}

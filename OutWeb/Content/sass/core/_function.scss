@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+// px換算至em
+@function em($px, $context: $font-size-base) {
+    @if (unitless($px)) {
+        $px: $px * 1px;
+    }
+
+    @if (unitless($context)) {
+        $context: $context * 1px;
+    }
+
+    @return $px / $context * 1em;
+}
+
+// 去單位
+@function strip-unit($num) {
+    @return $num / ($num * 0 + 1);
+}
+
+// 編碼fix
+@function unicode($str){
+    @return unquote("\"")+unquote(str-insert($str, "\\", 1))+unquote("\"");
+}
+
+// z-index
+@function z($key) {
+    @return map-get($z-index, $key);
+}
+
+// 算頁面比例
+@function per($px, $datum: $max-width) {
+    @return (strip-unit($px) / strip-unit($datum)) * 100%;
+}

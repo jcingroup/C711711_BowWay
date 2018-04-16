@@ -1,0 +1,218 @@
+@charset "UTF-8";
+
+/*      layout
+-----------------------------------------------------------------------*/
+// 滿版
+%container-fluid {
+    @include clearfix;
+
+    @if $enable-RWD {
+        @include mq-max(break(desktop,-1)) {
+            padding-left: rem(24);
+            padding-right: rem(24);
+        }
+    }
+    @else {
+        min-width: $min-width;
+    }
+}
+
+.wrap {
+    @extend %container-fluid;
+}
+
+// for 新版後台結構如下
+// <div id="page-content" class="wrapper"></div>
+.wrapper {
+    @if $wrapper-bg      { background: $wrapper-bg; }
+    @if not $enable-RWD  { min-width: $min-width; }
+    @if $footBeBottom {
+        @if $lte7 { _height: 100%; }
+        min-height: 100%;
+        padding-bottom: $footer-height + $wrapper-b-spacing; // 內容與footer間距
+    }
+}
+
+// header
+// ----------------------------------------------------------------------
+@if $isAdmin {
+    #header {
+        @extend %container-fluid;
+        @if $header-bg     { background: $header-bg; }
+        @if $header-height { height: $header-height; }
+        z-index: z(header);
+
+        // 本次專案
+        @include fixed(top 0 left 0 right 0);
+        padding-right: $gutter;
+        padding-left: $gutter;
+    }
+}
+
+.logo {
+    letter-spacing: 1px;
+
+    @if $isAdmin {
+        @extend .float-l, .text-white, .font-xl, .m-b-0;
+
+        cursor: pointer; cursor: hand; // for ie
+        z-index: z(logo);
+        line-height: $header-height;
+
+        a { color: inherit; }
+    }
+    @if $isLogin {
+        @extend .font-xxl, .text-danger, .m-b-0;
+    }
+}
+
+
+// footer 頁腳
+// ----------------------------------------------------------------------
+#footer {
+    @if $footer-bg     { background: $footer-bg; }
+    @if $footer-color  { color: $footer-color; }
+    @if $footer-height { min-height: $footer-height; }
+    @if $footBeBottom  { margin-top: -($footer-height); }
+
+    z-index: z(footer);
+    margin-right: 5px;
+    font-size: em(13);
+    letter-spacing: 1px;
+    border-top: 1px solid lighten($muted,28);
+
+    @extend .p-t-8;
+
+    @if $isAdmin {
+        margin-left: $sidebar-width + 5px;
+    }
+    @if $isLogin {
+        margin-left: 5px;
+    }
+}
+
+
+// main
+// ----------------------------------------------------------------------
+#main {
+    @extend %container-fluid;
+    z-index: z(main);
+
+    @if $isAdmin {
+        @extend .text-left;
+        padding: ($header-height+$sidebar-title-height) $gutter $wrapper-b-spacing ($sidebar-width + $gutter);
+    }
+    @if $isLogin {
+        padding-top: 5%;
+    }
+}
+
+
+// sidebar
+// ----------------------------------------------------------------------
+@if $isAdmin {
+    #sidebar {
+        @extend .text-left;
+
+        @include fixed(left 0 top $header-height bottom 0);
+
+        z-index: z(sidebar);
+        width: $sidebar-width;
+        background: #F2F2F2;
+        border-right: 1px solid darken(#f2f2f2,3);
+
+        h6 {
+            @extend .m-y-0, .p-l-16;
+            line-height: $sidebar-title-height - 1;
+            border-bottom: 1px solid darken(#F8F8F8,8);
+
+            &::before {
+                @extend .m-r-8;
+                color: lighten($danger,15);
+            }
+        }
+
+        a { display: block; }
+
+        .collapse-toggle,
+        > a {
+            @extend .p-y-8, .p-r-8, .p-l-16;
+
+            position: relative;
+            color: #333;
+            background: #F8F8F8;
+            border-bottom: 1px solid darken(#F8F8F8,8);
+
+            &::before {
+                color: darken($muted,30);
+                margin-right: 8px;
+            }
+            &:hover {
+                @extend .text-primary;
+            }
+            &:active, &:focus, &.active {
+                color: darken($brand-primary,10);
+                background: #fff;
+            }
+        }
+
+        // 伸縮
+        .collapse-toggle {
+            cursor: pointer; cursor: hand;
+
+            @include transition(all .35s);
+        }
+        .collapse-content {
+            @extend .bg-white, .hidden;
+
+            &.in {
+                display: block;
+                border-right: 3px solid $brand-primary;
+            }
+
+            a {
+                position: relative;
+                padding: 7px 7px 7px $spacer*2.25;
+                color: darken($muted,15);
+                font-size: em(15);
+                border-bottom: 1px dotted #E4E4E4;
+
+                &:last-child { border-bottom: 1px solid #EAF0DD; }
+
+                @include el(all) {
+                    position: absolute;
+                }
+                // 選單左直虛線
+                &::before {
+                    @include size(1px,100%);
+                    border-left: 1px dotted lighten($brand-primary,20%);
+                    top: 0; left: 18px;
+                    z-index: z(sidebar) + 2;
+                }
+                // 選單左橫虛線
+                &::after {
+                    @include size(7px, 1px);
+                    border-bottom: 1px dotted lighten($brand-primary,20%);
+                    top: 50%; left: 19px;
+                }
+
+                &:hover, &:active, &:focus, &.active {
+                    @extend .text-primary;
+                    background: #F2F7FA;
+
+                    // 由左橫虛線變成三角形
+                    &::after {
+                        @include size(auto);
+                        border: none;
+                        content: '\02023';
+                        font-size: em(25);
+                        top: -2px;
+                        left: 16px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+

@@ -1,0 +1,71 @@
+@charset "UTF-8";
+
+$enable-RWD:           true;
+$isLogin:              true;
+
+// import
+// ------------------------------------------------------------
+// 本次專案專用變數
+@import "_admin/settings";
+
+// 共用
+@import "core/function";
+@import "core/variables";
+@import "core/mixins";
+
+// 由此 output css
+@import "vendor/normalize";  // 重置樣式
+
+// basic
+@import "unit/base";
+@import "unit/link";
+@import "unit/typography";
+
+// == 本頁專用
+// 後端
+@import "_admin/layout";
+@import "_admin/form";
+
+// 套件
+@import "unit/btn";
+@import "unit/loader";
+
+// 本專案自定後端樣式
+@import "_admin/classes"; // 建議放置在最後一個
+
+
+// main
+// ------------------------------------------------------------
+h5 {
+    @extend .m-t-8;
+}
+form {
+    @extend .m-x-a, .p-t-12;
+
+    border: 1px solid #ccc;
+    background: #F7F7F7;
+    box-shadow: 0 0 10px #ccc;
+    max-width: 430px;
+    margin-top: 40px;
+
+    .title, main {
+        @extend .m-x-a;
+        width: 93%;
+    }
+}
+
+label {
+    @extend .m-b-2;
+    color: #222;
+}
+
+.form-element {
+    &:not(:last-child) {
+        @extend .m-b-12;
+    }
+}
+
+.action-bar {
+    @extend .m-t-32, .p-t-12, .p-b-16, .bg-primary;
+    border-top: 1px solid darken($brand-primary,5);
+}

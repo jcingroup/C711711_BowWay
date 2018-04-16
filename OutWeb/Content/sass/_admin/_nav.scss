@@ -1,0 +1,62 @@
+@charset "UTF-8";
+
+// setting
+// ------------------------------------------------------------
+// navbar style
+$navbar-height:         $header-height !default;
+
+// nav style
+$nav-name:              '.nav-link' !default;
+$nav-height:            'full' !default;   // 'full' | 18px | flase
+$nav-font-size:         17px !default;
+$nav-color:             #fff !default;
+$nav-bg:                lighten($brand-primary,16) !default;
+
+$nav-group: (
+    (home, $warning),
+    (logout, $success)
+) !default;
+
+
+// 右上方資訊選單(回首頁,登出等)
+// ------------------------------------------------------------
+.navbar {
+    @if $navbar-height { height: $navbar-height }
+
+    @extend .float-r;
+
+    #{$nav-name} {
+        @if $nav-bg        { background: $nav-bg; }
+        @if $nav-color     { color: $nav-color; }
+        @if $nav-font-size { font-size: em($nav-font-size); }
+        @if $nav-height {
+            height: if($nav-height == 'full', 100%, $nav-height);
+            @if $nav-height == 'full' {
+                @include text-middle($navbar-height);
+            }
+        }
+
+        @extend .p-x-12, .font-md;
+        display: inline-block;
+        margin-left: -4px;
+        border-left: 1px solid #fff;
+
+        &:last-child {
+            border-right: 1px solid #fff;
+        }
+
+        @each $class, $color in $nav-group {
+            &.#{$class} {
+                background: $color;
+
+                &:hover {
+                    background: lighten($color,10);
+                }
+                &:active, &:focus {
+                    background: draken($color,12);
+                    box-shadow: inset 3px 3px 10px rgba(#000,.3);
+                }
+            }
+        }
+    }
+}

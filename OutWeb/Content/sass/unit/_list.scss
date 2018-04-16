@@ -1,0 +1,37 @@
+﻿@charset "UTF-8";
+
+//
+// list
+// ------------------------------------------------------------
+ol, ul, dl {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding-left: 0;
+
+    ol, ul, dl {
+        font-size: 90%;
+        margin-bottom: 0;
+    }
+}
+dt {
+    font-weight: bold;
+}
+dd {
+    margin-left: 0; // Undo browser default
+}
+
+%list-unstyled {
+    list-style: none;
+    padding-left: 0;
+}
+%list-inline {
+    @extend %list-unstyled;
+
+    > li {
+        display: inline-block;
+        &:not(:last-child) { margin-right: 5px; }
+    }
+}
+
+.list-unstyled { @extend %list-unstyled; }
+.list-inline   { @extend %list-inline; }
